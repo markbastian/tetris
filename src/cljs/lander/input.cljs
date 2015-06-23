@@ -1,4 +1,5 @@
-(ns lander.input)
+(ns lander.input
+  (:require [lander.terrain :as terrain]))
 
 (defmulti handle-keydown (fn [state _] (@state :game-state)))
 
@@ -8,7 +9,8 @@
                       :state [0 0 190 0 0]
                       :time (.getTime (js/Date.))
                       :theta 0
-                      :thrust 0 })
+                      :thrust 0
+                      :terrain (terrain/gen-real {:roughness 100 :cells { 0 0 1 0 } } 10 -100 100) })
     :else nil))
 
 (defmethod handle-keydown :live [state e]
