@@ -14,8 +14,8 @@
       (-> .-strokeStyle (set! "FFFFFF"))
       (.fillText "Welcome to Lunar Lander!" 30 40)
       (.fillText "Press Enter/Return key to play!" 30 50)
-      (.fillText "Press left and right to rotate." 30 60)
-      (.fillText "Press space to engage rocket." 30 70)
+      (.fillText "Press left and right arrow keys to rotate." 30 60)
+      (.fillText "Press 'f' or space to engage rocket." 30 70)
       (.fillText "Win by making a gentle landing (<= 10 m/s) with 0 rotation." 30 80)
       (.fillText "Leaving the screen to the left, right, or top will cause you to lose." 30 90))))
 

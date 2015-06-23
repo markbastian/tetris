@@ -43,7 +43,7 @@ function v(a) {
   }
   return b;
 }
-var ba = "closure_uid_" + (1E9 * Math.random() >>> 0), da = 0;
+var aa = "closure_uid_" + (1E9 * Math.random() >>> 0), da = 0;
 function fa(a) {
   return Array.prototype.join.call(arguments, "");
 }
@@ -907,7 +907,7 @@ eb["function"] = function() {
   return null;
 };
 lb._ = function(a) {
-  return a[ba] || (a[ba] = ++da);
+  return a[aa] || (a[aa] = ++da);
 };
 function kc(a) {
   return a + 1;
@@ -1384,7 +1384,7 @@ h.call = function() {
     a = this;
     return a.f.o ? a.f.o() : a.f.call(null);
   }
-  var x = null, x = function(ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc, Mc, Ud) {
+  var x = null, x = function(ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc, Mc, Ud) {
     switch(arguments.length) {
       case 1:
         return ga.call(this, ua);
@@ -1397,39 +1397,39 @@ h.call = function() {
       case 5:
         return z.call(this, ua, O, R, S, X);
       case 6:
-        return w.call(this, ua, O, R, S, X, aa);
+        return w.call(this, ua, O, R, S, X, ba);
       case 7:
-        return u.call(this, ua, O, R, S, X, aa, ca);
+        return u.call(this, ua, O, R, S, X, ba, ca);
       case 8:
-        return t.call(this, ua, O, R, S, X, aa, ca, ea);
+        return t.call(this, ua, O, R, S, X, ba, ca, ea);
       case 9:
-        return r.call(this, ua, O, R, S, X, aa, ca, ea, ia);
+        return r.call(this, ua, O, R, S, X, ba, ca, ea, ia);
       case 10:
-        return q.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja);
+        return q.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja);
       case 11:
-        return p.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la);
+        return p.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la);
       case 12:
-        return n.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra);
+        return n.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra);
       case 13:
-        return m.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya);
+        return m.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya);
       case 14:
-        return l.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba);
+        return l.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba);
       case 15:
-        return k.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x);
+        return k.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x);
       case 16:
-        return g.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma);
+        return g.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma);
       case 17:
-        return f.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta);
+        return f.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta);
       case 18:
-        return e.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb);
+        return e.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb);
       case 19:
-        return d.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb);
+        return d.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb);
       case 20:
-        return c.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc);
+        return c.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc);
       case 21:
-        return b.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc, Mc);
+        return b.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc, Mc);
       case 22:
-        return a.call(this, ua, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc, Mc, Ud);
+        return a.call(this, ua, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, x, Ma, Ta, hb, zb, bc, Mc, Ud);
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -2605,7 +2605,7 @@ h.ub = function(a, b, c) {
   }
 };
 h.H = function() {
-  return this[ba] || (this[ba] = ++da);
+  return this[aa] || (this[aa] = ++da);
 };
 function Ld() {
   switch(arguments.length) {
@@ -5787,7 +5787,7 @@ h.call = function() {
     y(c) || Y(a.name, b);
     return c.o ? c.o() : c.call(null);
   }
-  var x = null, x = function(x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc, Mc, Ud) {
+  var x = null, x = function(x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc, Mc, Ud) {
     switch(arguments.length) {
       case 1:
         return ga.call(this, x);
@@ -5800,39 +5800,39 @@ h.call = function() {
       case 5:
         return z.call(this, x, O, R, S, X);
       case 6:
-        return w.call(this, x, O, R, S, X, aa);
+        return w.call(this, x, O, R, S, X, ba);
       case 7:
-        return u.call(this, x, O, R, S, X, aa, ca);
+        return u.call(this, x, O, R, S, X, ba, ca);
       case 8:
-        return t.call(this, x, O, R, S, X, aa, ca, ea);
+        return t.call(this, x, O, R, S, X, ba, ca, ea);
       case 9:
-        return r.call(this, x, O, R, S, X, aa, ca, ea, ia);
+        return r.call(this, x, O, R, S, X, ba, ca, ea, ia);
       case 10:
-        return q.call(this, x, O, R, S, X, aa, ca, ea, ia, ja);
+        return q.call(this, x, O, R, S, X, ba, ca, ea, ia, ja);
       case 11:
-        return p.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la);
+        return p.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la);
       case 12:
-        return n.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra);
+        return n.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra);
       case 13:
-        return m.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya);
+        return m.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya);
       case 14:
-        return l.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba);
+        return l.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba);
       case 15:
-        return k.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb);
+        return k.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb);
       case 16:
-        return g.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma);
+        return g.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma);
       case 17:
-        return f.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta);
+        return f.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta);
       case 18:
-        return e.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb);
+        return e.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb);
       case 19:
-        return d.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb);
+        return d.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb);
       case 20:
-        return c.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc);
+        return c.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc);
       case 21:
-        return b.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc, Mc);
+        return b.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc, Mc);
       case 22:
-        return a.call(this, x, O, R, S, X, aa, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc, Mc, Ud);
+        return a.call(this, x, O, R, S, X, ba, ca, ea, ia, ja, la, ra, ya, Ba, Lb, Ma, Ta, hb, zb, bc, Mc, Ud);
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -6005,7 +6005,7 @@ h.Va = function() {
   return Gb(this.name);
 };
 h.H = function() {
-  return this[ba] || (this[ba] = ++da);
+  return this[aa] || (this[aa] = ++da);
 };
 var za = new N(null, "meta", "meta", 1499536964), Aa = new N(null, "dup", "dup", 556298533), Nf = new N(null, "else", "else", -1508377146), Of = new N(null, "_", "_", 1453416199), Nd = new N(null, "validator", "validator", -1966190681), Pf = new N(null, "default", "default", -1987822328), Qf = new N(null, "time", "time", 1385887882), Rf = new N(null, "roughness", "roughness", 1590413194), Sf = new N(null, "lose", "lose", -1493527476), Tf = new N(null, "state", "state", -1988618099), yf = new N(null, 
 "fallback-impl", "fallback-impl", -1501286995), wa = new N(null, "flush-on-newline", "flush-on-newline", -151457939), Uf = new N(null, "theta", "theta", -427510258), Cf = new N(null, "descendants", "descendants", 1824886031), Vf = new N(null, "game-state", "game-state", 935682735), Df = new N(null, "ancestors", "ancestors", -776045424), xa = new N(null, "readably", "readably", 1129599760), qf = new N(null, "more-marker", "more-marker", -14717935), Wf = new N(null, "c", "c", -1763192079), Ca = new N(null, 
@@ -6158,8 +6158,8 @@ Mf(ng, cg, function(a, b) {
   c.strokeStyle = "FFFFFF";
   c.fillText("Welcome to Lunar Lander!", 30, 40);
   c.fillText("Press Enter/Return key to play!", 30, 50);
-  c.fillText("Press left and right to rotate.", 30, 60);
-  c.fillText("Press space to engage rocket.", 30, 70);
+  c.fillText("Press left and right arrow keys to rotate.", 30, 60);
+  c.fillText("Press 'f' or space to engage rocket.", 30, 70);
   c.fillText("Win by making a gentle landing (\x3c\x3d 10 m/s) with 0 rotation.", 30, 80);
   c.fillText("Leaving the screen to the left, right, or top will cause you to lose.", 30, 90);
   return c;
@@ -6311,7 +6311,7 @@ Mf(ug, $f, function(a, b) {
       };
     }(c));
   }
-  if (cc.a(32, c)) {
+  if (cc.a(32, c) || cc.a(70, c)) {
     return Qd.u(a, Dc, Zf, 100);
   }
   if (cc.a(Nf, c)) {
@@ -6331,7 +6331,7 @@ if ("undefined" === typeof vg) {
 }
 Mf(vg, Pf, function(a, b) {
   var c = b.keyCode;
-  if (cc.a(32, c)) {
+  if (cc.a(32, c) || cc.a(70, c)) {
     return Qd.u(a, Dc, Zf, 0);
   }
   if (cc.a(Nf, c)) {

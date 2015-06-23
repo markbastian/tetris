@@ -17,13 +17,13 @@
   (case (.-keyCode e)
     (37 97) (swap! state update :theta (fn [theta] (mod (+ theta 10) 360)))
     (39 100) (swap! state update :theta (fn [theta] (mod (- theta 10) 360)))
-    32 (swap! state assoc :thrust 100)
+    (32 70) (swap! state assoc :thrust 100)
     :else nil))
 
 (defmulti handle-keyup (fn [state _] (@state :game-state)))
 
 (defmethod handle-keyup :default [state e]
   (case (.-keyCode e)
-    32 (swap! state assoc :thrust 0)
+    (32 70) (swap! state assoc :thrust 0)
     :else nil))
 
