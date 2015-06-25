@@ -8,10 +8,10 @@
 
 (defn intro-screen [canvas]
   (do
-    (fill-background canvas "000000")
+    (fill-background canvas "#000000")
     (doto (.getContext canvas "2d")
-      (-> .-fillStyle (set! "00FF00"))
-      (-> .-strokeStyle (set! "FFFFFF"))
+      (-> .-fillStyle (set! "#00FF00"))
+      (-> .-strokeStyle (set! "#FFFFFF"))
       (.fillText "Welcome to Lunar Lander!" 30 40)
       (.fillText "Press Enter/Return key to play!" 30 50)
       (.fillText "Press left and right arrow keys to rotate." 30 60)
@@ -21,16 +21,16 @@
 
 (defn win-screen [canvas]
   (doto (.getContext canvas "2d")
-    (-> .-fillStyle (set! "00FF00"))
-    (-> .-strokeStyle (set! "FFFFFF"))
+    (-> .-fillStyle (set! "#00FF00"))
+    (-> .-strokeStyle (set! "#FFFFFF"))
     (.fillText "Good Job!" 100 200)
     (.fillText "You Won!" 100 210)
     (.fillText "Press Enter/Return key to play again!" 100 220)))
 
 (defn lose-screen [canvas]
   (doto (.getContext canvas "2d")
-    (-> .-fillStyle (set! "00FF00"))
-    (-> .-strokeStyle (set! "FFFFFF"))
+    (-> .-fillStyle (set! "#00FF00"))
+    (-> .-strokeStyle (set! "#FFFFFF"))
     (.fillText "Sorry, You Lost!" 100 200)
     (.fillText "Press Enter/Return key to play again!" 100 210)))
 
@@ -56,7 +56,7 @@
     (doto ctx
       (.save)
       (.translate 0 -5)
-      (-> .-fillStyle (set! "FF0000"))
+      (-> .-fillStyle (set! "#FF0000"))
       draw-triangle
       (.restore))))
 
@@ -67,7 +67,7 @@
       (.translate px py)
       (.rotate (-> theta (* Math/PI) (/ 180)))
       (draw-thrust s)
-      (-> .-fillStyle (set! "FFFFFF"))
+      (-> .-fillStyle (set! "#FFFFFF"))
       draw-triangle
       (.restore))))
 
@@ -76,10 +76,10 @@
         w (.-width canvas) h (.-height canvas)
         [_ px py vx vy] state]
     (do
-      (fill-background canvas "000000")
+      (fill-background canvas "#000000")
       (doto (.getContext canvas "2d")
-        (-> .-fillStyle (set! "00FF00"))
-        (-> .-strokeStyle (set! "FFFFFF"))
+        (-> .-fillStyle (set! "#00FF00"))
+        (-> .-strokeStyle (set! "#FFFFFF"))
         (.fillText (str "Elevation: " (- py (terrain/terrain-height px terrain))) 0 10)
         (.fillText (str "Rotation: " theta) 0 20)
         (.fillText (str "Y Velocity: " vy) 0 30)
@@ -94,8 +94,6 @@
 
 (defmulti render (fn [state _] (@state :game-state)))
 
-(defmethod render :before [_ canvas] (intro-screen canvas))
-
 (defmethod render :win [state canvas]
   (do
     (draw canvas @state)
@@ -107,3 +105,5 @@
     (lose-screen canvas)))
 
 (defmethod render :live [state canvas] (draw canvas @state))
+
+(defmethod render :default [_ canvas] (intro-screen canvas))
