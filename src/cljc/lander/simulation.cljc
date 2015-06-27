@@ -6,7 +6,7 @@
 
 (defmethod sim :live [state-ref]
   (let [{:keys [theta thrust time state]} @state-ref
-        t (.getTime (js/Date.))
+        t (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
         dt (* (- t time) 1E-3)
         dvx #(-> theta (* Math/PI) (/ -180) Math/sin (* thrust))
         dvy #(+ -9.81 (-> theta (* Math/PI) (/ -180) Math/cos (* thrust)))

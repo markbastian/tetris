@@ -6011,16 +6011,86 @@ var za = new N(null, "meta", "meta", 1499536964), Aa = new N(null, "dup", "dup",
 wa = new N(null, "flush-on-newline", "flush-on-newline", -151457939), Tf = new N(null, "theta", "theta", -427510258), Cf = new N(null, "descendants", "descendants", 1824886031), Uf = new N(null, "game-state", "game-state", 935682735), Df = new N(null, "ancestors", "ancestors", -776045424), xa = new N(null, "readably", "readably", 1129599760), qf = new N(null, "more-marker", "more-marker", -14717935), Vf = new N(null, "c", "c", -1763192079), Ca = new N(null, "print-length", "print-length", 1931866356), 
 Wf = new N(null, "terrain", "terrain", 704966005), Bf = new N(null, "parents", "parents", -2027538891), Xf = new N(null, "b", "b", 1482224470), Yf = new N(null, "thrust", "thrust", 651754168), Zf = new N(null, "live", "live", -1610148039), $f = new N(null, "cells", "cells", -985166822), ag = new N(null, "hierarchy", "hierarchy", -1053470341), xf = new N(null, "alt-impl", "alt-impl", 670969595), bg = new N(null, "before", "before", -1633692388), cg = new N(null, "a", "a", -2123407586), dg = new N(null, 
 "win", "win", -1624642689);
-function eg(a, b) {
+function eg(a, b, c, d, e, f) {
+  var g = M(b, 0), k = md(b);
+  b = T.a(function() {
+    return function(a) {
+      return c * cd(fd, T.h(hd, d, a));
+    };
+  }(b, g, k), f);
+  return Fd(of, a).call(null, Vd.a(new U(null, 1, 5, V, [g + c * e], null), T.h(fd, k, b)));
+}
+function fg(a, b, c, d) {
+  var e = M(b, 0), f = md(b);
+  a = T.a(function() {
+    return function(a) {
+      return cd(fd, T.h(hd, d, a));
+    };
+  }(b, e, f), a);
+  return Vd.a(new U(null, 1, 5, V, [e + c], null), T.h(function() {
+    return function(a, b) {
+      return a * c + b;
+    };
+  }(a, b, e, f), a, f));
+}
+function gg(a, b, c) {
+  var d = hg, e = Rc(d) ? Fd(Md, d) : d, d = Bc(e, Xf);
+  a: {
+    for (var e = Rc(e) ? Fd(Md, e) : e, f = Bc(e, cg), g = Bc(e, Vf), e = yc(a), e = Rd(e, Sd(xc));;) {
+      if (Ea(I(g))) {
+        break a;
+      }
+      e = T.h(wc, e, eg(a, b, c, I(f), I(g), e));
+      f = $b(f);
+      g = $b(g);
+    }
+  }
+  return fg(e, b, c, d);
+}
+;var hg = new va(null, 3, [Vf, new U(null, 4, 5, V, [0, .5, .5, 1], null), cg, new U(null, 4, 5, V, [xc, new U(null, 1, 5, V, [.5], null), new U(null, 2, 5, V, [0, .5], null), new U(null, 3, 5, V, [0, 0, 1], null)], null), Xf, new U(null, 4, 5, V, [1 / 6, 1 / 3, 1 / 3, 1 / 6], null)], null);
+if ("undefined" === typeof ig) {
+  var ig = function() {
+    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
+    return new Lf(Zb("lander.simulation", "sim"), function() {
+      return function(a) {
+        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
+      };
+    }(a, b, c, d, e), Of, e, a, b, c, d);
+  }()
+}
+Mf(ig, Zf, function(a) {
+  var b = K.b ? K.b(a) : K.call(null, a), c = Rc(b) ? Fd(Md, b) : b, d = Bc(c, Tf), e = Bc(c, Yf), f = Bc(c, Pf), g = Bc(c, Sf), k = (new Date).getTime(), l = .001 * (k - f), m = function(a, b, c, d) {
+    return function() {
+      return Math.sin(c * Math.PI / -180) * d;
+    };
+  }(b, c, d, e, f, g, k, l), n = function(a, b, c, d) {
+    return function() {
+      return -9.81 + Math.cos(c * Math.PI / -180) * d;
+    };
+  }(b, c, d, e, f, g, k, l, m), b = gg(new U(null, 4, 5, V, [function() {
+    return function(a) {
+      return a.b ? a.b(3) : a.call(null, 3);
+    };
+  }(b, c, d, e, f, g, k, l, m, n), function() {
+    return function(a) {
+      return a.b ? a.b(4) : a.call(null, 4);
+    };
+  }(b, c, d, e, f, g, k, l, m, n), m, n], null), g, l);
+  return Qd.h(a, Vd, new va(null, 2, [Sf, b, Pf, k], null));
+});
+Mf(ig, Of, function() {
+  return bc;
+});
+function jg(a, b) {
   var c = I(I(b)), d = Fd(gd, T.a(I, Rd(2, b))), e = (a - c) / Math.abs(d) | 0, c = Wd(b, new U(null, 2, 5, V, [e, 0], null)), d = Wd(b, new U(null, 2, 5, V, [e, 1], null)), f = Wd(b, new U(null, 2, 5, V, [e + 1, 0], null)), e = Wd(b, new U(null, 2, 5, V, [e + 1, 1], null));
   return y(f) ? d + (a - c) / (f - c) * (e - d) : d;
 }
-function fg(a) {
+function kg(a) {
   return kf(T.a(function(a) {
     return 2 * a;
   }, De(a)), Ee(a));
 }
-function gg(a, b) {
+function lg(a, b) {
   return function d(e) {
     return new ud(null, function() {
       for (;;) {
@@ -6051,16 +6121,16 @@ function gg(a, b) {
     }, null, null);
   }(nf(2 * yc(a) - 1));
 }
-function hg(a) {
+function mg(a) {
   var b = Rc(a) ? Fd(Md, a) : a;
   a = Bc(b, Qf);
-  var b = Bc(b, $f), b = fg(b), c = gg(b, a);
+  var b = Bc(b, $f), b = kg(b), c = lg(b, a);
   return new va(null, 2, [Qf, .5 * a, $f, Vd.a(b, c)], null);
 }
-function ig() {
+function ng() {
   var a = new va(null, 2, [Qf, 100, $f, new va(null, 2, [0, 0, 1, 0], null)], null);
   return me(function() {
-    var b = Ac(Td(hg, a), 10), c = Rc(b) ? Fd(Md, b) : b, d = Bc(c, $f), e = Fd(jd, Ee(d));
+    var b = Ac(Td(mg, a), 10), c = Rc(b) ? Fd(Md, b) : b, d = Bc(c, $f), e = Fd(jd, Ee(d));
     return Xc(kf(T.a(function(a, b, c) {
       return function(a) {
         return -100 + 200 * (a / (yc(c) - 1));
@@ -6072,12 +6142,141 @@ function ig() {
     }(b, c, d, e), Ee(d))));
   }());
 }
-;function jg(a) {
+;if ("undefined" === typeof og) {
+  var og = function() {
+    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
+    return new Lf(Zb("lander.game-state", "game-state"), function() {
+      return function(a) {
+        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
+      };
+    }(a, b, c, d, e), Of, e, a, b, c, d);
+  }()
+}
+Mf(og, Zf, function(a) {
+  var b = K.b ? K.b(a) : K.call(null, a), c = Rc(b) ? Fd(Md, b) : b, d = Bc(c, Sf);
+  M(d, 0);
+  var b = M(d, 1), e = M(d, 2), f = M(d, 3), d = M(d, 4), g = Bc(c, Tf), c = Bc(c, Wf), c = jg(b, c);
+  return e - 5 < c && 0 === g && -10 <= d && 10 >= d && -10 <= f && 10 >= f ? Qd.v(a, Dc, Uf, dg) : -100 <= b && 100 >= b && c + 5 <= e && 200 >= e ? null : Qd.v(a, Dc, Uf, Rf);
+});
+Mf(og, Of, function() {
+  return bc;
+});
+if ("undefined" === typeof pg) {
+  var pg = function() {
+    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
+    return new Lf(Zb("lander.render", "render"), function() {
+      return function(a) {
+        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
+      };
+    }(a, b, c, d, e), Of, e, a, b, c, d);
+  }()
+}
+;if ("undefined" === typeof qg) {
+  var qg = function() {
+    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
+    return new Lf(Zb("lander.input", "handle-keydown"), function() {
+      return function(a) {
+        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
+      };
+    }(a, b, c, d, e), Of, e, a, b, c, d);
+  }()
+}
+Mf(qg, Of, function(a, b) {
+  switch(b.keyCode) {
+    case 13:
+      var c = new va(null, 6, [Uf, Zf, Sf, new U(null, 5, 5, V, [0, 0, 190, 0, 0], null), Pf, (new Date).getTime(), Tf, 0, Yf, 0, Wf, ng()], null);
+      return Od.a ? Od.a(a, c) : Od.call(null, a, c);
+    default:
+      return null;
+  }
+});
+Mf(qg, Zf, function(a, b) {
+  var c = b.keyCode;
+  switch(c) {
+    case 37:
+    ;
+    case 97:
+      return Qd.v(a, Xd, Tf, function() {
+        return function(a) {
+          return ((a + 10) % 360 + 360) % 360;
+        };
+      }(c));
+    case 39:
+    ;
+    case 100:
+      return Qd.v(a, Xd, Tf, function() {
+        return function(a) {
+          return ((a - 10) % 360 + 360) % 360;
+        };
+      }(c));
+    case 32:
+    ;
+    case 70:
+      return Qd.v(a, Dc, Yf, 100);
+    default:
+      return null;
+  }
+});
+if ("undefined" === typeof rg) {
+  var rg = function() {
+    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
+    return new Lf(Zb("lander.input", "handle-keyup"), function() {
+      return function(a) {
+        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
+      };
+    }(a, b, c, d, e), Of, e, a, b, c, d);
+  }()
+}
+Mf(rg, Of, function(a, b) {
+  switch(b.keyCode) {
+    case 32:
+    ;
+    case 70:
+      return Qd.v(a, Dc, Yf, 0);
+    default:
+      return null;
+  }
+});
+function sg(a) {
+  return window.onload = function() {
+    var b = function() {
+      var a = new va(null, 1, [Uf, bg], null);
+      return Q ? Q(a) : Ld.call(null, a);
+    }();
+    setInterval(function(b) {
+      return function() {
+        og.b ? og.b(b) : og.call(null, b);
+        ig.b ? ig.b(b) : ig.call(null, b);
+        return pg.a ? pg.a(b, a) : pg.call(null, b, a);
+      };
+    }(b), 1);
+    document.onkeydown = function(a) {
+      return function(b) {
+        return qg.a ? qg.a(a, b) : qg.call(null, a, b);
+      };
+    }(b);
+    return document.onkeyup = function(a) {
+      return function(b) {
+        return rg.a ? rg.a(a, b) : rg.call(null, a, b);
+      };
+    }(b);
+  }();
+}
+var tg = ["lander", "lunarlander", "init"], ug = this;
+tg[0] in ug || !ug.execScript || ug.execScript("var " + tg[0]);
+for (var vg;tg.length && (vg = tg.shift());) {
+  var wg;
+  if (wg = !tg.length) {
+    wg = void 0 !== sg;
+  }
+  wg ? ug[vg] = sg : ug = ug[vg] ? ug[vg] : ug[vg] = {};
+}
+;function xg(a) {
   var b = a.getContext("2d");
   b.fillStyle = "#000000";
   b.fillRect(0, 0, a.width, a.height);
 }
-function kg(a) {
+function yg(a) {
   a.beginPath();
   a.moveTo(-3, -5);
   a.lineTo(0, 5);
@@ -6085,17 +6284,17 @@ function kg(a) {
   a.lineTo(-3, -5);
   a.fill();
 }
-function lg(a, b) {
+function zg(a, b) {
   var c = Rc(b) ? Fd(Md, b) : b, d = Bc(c, Sf), e = Bc(c, Tf), f = Bc(c, Wf), g = a.width, k = a.height;
   M(d, 0);
   var l = M(d, 1), m = M(d, 2);
   M(d, 3);
   var n = M(d, 4);
-  jg(a);
+  xg(a);
   d = a.getContext("2d");
   d.fillStyle = "#00FF00";
   d.strokeStyle = "#FFFFFF";
-  d.fillText([D("Elevation: "), D(m - eg(l, f))].join(""), 0, 10);
+  d.fillText([D("Elevation: "), D(m - jg(l, f))].join(""), 0, 10);
   d.fillText([D("Rotation: "), D(e)].join(""), 0, 20);
   d.fillText([D("Y Velocity: "), D(n)].join(""), 0, 30);
   d.save();
@@ -6134,25 +6333,15 @@ function lg(a, b) {
   d.rotate(f * Math.PI / 180);
   c = Rc(c) ? Fd(Md, c) : c;
   Bc(c, Nf);
-  0 < Bc(c, Yf) && (d.save(), d.translate(0, -5), d.fillStyle = "#FF0000", kg(d), d.restore());
+  0 < Bc(c, Yf) && (d.save(), d.translate(0, -5), d.fillStyle = "#FF0000", yg(d), d.restore());
   d.fillStyle = "#FFFFFF";
-  kg(d);
+  yg(d);
   d.restore();
   d.restore();
   return d;
 }
-if ("undefined" === typeof mg) {
-  var mg = function() {
-    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
-    return new Lf(Zb("lander.render", "render"), function() {
-      return function(a) {
-        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
-      };
-    }(a, b, c, d, e), Of, e, a, b, c, d);
-  }()
-}
-Mf(mg, dg, function(a, b) {
-  lg(b, K.b ? K.b(a) : K.call(null, a));
+Mf(pg, dg, function(a, b) {
+  zg(b, K.b ? K.b(a) : K.call(null, a));
   var c = b.getContext("2d");
   c.fillStyle = "#00FF00";
   c.strokeStyle = "#FFFFFF";
@@ -6161,8 +6350,8 @@ Mf(mg, dg, function(a, b) {
   c.fillText("Press Enter/Return key to play again!", 100, 220);
   return c;
 });
-Mf(mg, Rf, function(a, b) {
-  lg(b, K.b ? K.b(a) : K.call(null, a));
+Mf(pg, Rf, function(a, b) {
+  zg(b, K.b ? K.b(a) : K.call(null, a));
   var c = b.getContext("2d");
   c.fillStyle = "#00FF00";
   c.strokeStyle = "#FFFFFF";
@@ -6170,11 +6359,11 @@ Mf(mg, Rf, function(a, b) {
   c.fillText("Press Enter/Return key to play again!", 100, 210);
   return c;
 });
-Mf(mg, Zf, function(a, b) {
-  return lg(b, K.b ? K.b(a) : K.call(null, a));
+Mf(pg, Zf, function(a, b) {
+  return zg(b, K.b ? K.b(a) : K.call(null, a));
 });
-Mf(mg, Of, function(a, b) {
-  jg(b);
+Mf(pg, Of, function(a, b) {
+  xg(b);
   var c = b.getContext("2d");
   c.fillStyle = "#00FF00";
   c.strokeStyle = "#FFFFFF";
@@ -6186,194 +6375,5 @@ Mf(mg, Of, function(a, b) {
   c.fillText("Leaving the screen to the left, right, or top will cause you to lose.", 30, 90);
   return c;
 });
-function ng(a, b, c, d, e, f) {
-  var g = M(b, 0), k = md(b);
-  b = T.a(function() {
-    return function(a) {
-      return c * cd(fd, T.h(hd, d, a));
-    };
-  }(b, g, k), f);
-  return Fd(of, a).call(null, Vd.a(new U(null, 1, 5, V, [g + c * e], null), T.h(fd, k, b)));
-}
-function og(a, b, c, d) {
-  var e = M(b, 0), f = md(b);
-  a = T.a(function() {
-    return function(a) {
-      return cd(fd, T.h(hd, d, a));
-    };
-  }(b, e, f), a);
-  return Vd.a(new U(null, 1, 5, V, [e + c], null), T.h(function() {
-    return function(a, b) {
-      return a * c + b;
-    };
-  }(a, b, e, f), a, f));
-}
-function pg(a, b, c) {
-  var d = qg, e = Rc(d) ? Fd(Md, d) : d, d = Bc(e, Xf);
-  a: {
-    for (var e = Rc(e) ? Fd(Md, e) : e, f = Bc(e, cg), g = Bc(e, Vf), e = yc(a), e = Rd(e, Sd(xc));;) {
-      if (Ea(I(g))) {
-        break a;
-      }
-      e = T.h(wc, e, ng(a, b, c, I(f), I(g), e));
-      f = $b(f);
-      g = $b(g);
-    }
-  }
-  return og(e, b, c, d);
-}
-;var qg = new va(null, 3, [Vf, new U(null, 4, 5, V, [0, .5, .5, 1], null), cg, new U(null, 4, 5, V, [xc, new U(null, 1, 5, V, [.5], null), new U(null, 2, 5, V, [0, .5], null), new U(null, 3, 5, V, [0, 0, 1], null)], null), Xf, new U(null, 4, 5, V, [1 / 6, 1 / 3, 1 / 3, 1 / 6], null)], null);
-if ("undefined" === typeof rg) {
-  var rg = function() {
-    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
-    return new Lf(Zb("lander.simulation", "sim"), function() {
-      return function(a) {
-        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
-      };
-    }(a, b, c, d, e), Of, e, a, b, c, d);
-  }()
-}
-Mf(rg, Zf, function(a) {
-  var b = K.b ? K.b(a) : K.call(null, a), c = Rc(b) ? Fd(Md, b) : b, d = Bc(c, Tf), e = Bc(c, Yf), f = Bc(c, Pf), g = Bc(c, Sf), k = (new Date).getTime(), l = .001 * (k - f), m = function(a, b, c, d) {
-    return function() {
-      return Math.sin(c * Math.PI / -180) * d;
-    };
-  }(b, c, d, e, f, g, k, l), n = function(a, b, c, d) {
-    return function() {
-      return -9.81 + Math.cos(c * Math.PI / -180) * d;
-    };
-  }(b, c, d, e, f, g, k, l, m), b = pg(new U(null, 4, 5, V, [function() {
-    return function(a) {
-      return a.b ? a.b(3) : a.call(null, 3);
-    };
-  }(b, c, d, e, f, g, k, l, m, n), function() {
-    return function(a) {
-      return a.b ? a.b(4) : a.call(null, 4);
-    };
-  }(b, c, d, e, f, g, k, l, m, n), m, n], null), g, l);
-  return Qd.h(a, Vd, new va(null, 2, [Sf, b, Pf, k], null));
-});
-Mf(rg, Of, function() {
-  return bc;
-});
-if ("undefined" === typeof sg) {
-  var sg = function() {
-    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
-    return new Lf(Zb("lander.game-state", "game-state"), function() {
-      return function(a) {
-        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
-      };
-    }(a, b, c, d, e), Of, e, a, b, c, d);
-  }()
-}
-Mf(sg, Zf, function(a) {
-  var b = K.b ? K.b(a) : K.call(null, a), c = Rc(b) ? Fd(Md, b) : b, d = Bc(c, Sf);
-  M(d, 0);
-  var b = M(d, 1), e = M(d, 2), f = M(d, 3), d = M(d, 4), g = Bc(c, Tf), c = Bc(c, Wf), c = eg(b, c);
-  return e - 5 < c && 0 === g && -10 <= d && 10 >= d && -10 <= f && 10 >= f ? Qd.v(a, Dc, Uf, dg) : -100 <= b && 100 >= b && c + 5 <= e && 200 >= e ? null : Qd.v(a, Dc, Uf, Rf);
-});
-Mf(sg, Of, function() {
-  return bc;
-});
-if ("undefined" === typeof tg) {
-  var tg = function() {
-    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
-    return new Lf(Zb("lander.input", "handle-keydown"), function() {
-      return function(a) {
-        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
-      };
-    }(a, b, c, d, e), Of, e, a, b, c, d);
-  }()
-}
-Mf(tg, Of, function(a, b) {
-  switch(b.keyCode) {
-    case 13:
-      var c = new va(null, 6, [Uf, Zf, Sf, new U(null, 5, 5, V, [0, 0, 190, 0, 0], null), Pf, (new Date).getTime(), Tf, 0, Yf, 0, Wf, ig()], null);
-      return Od.a ? Od.a(a, c) : Od.call(null, a, c);
-    default:
-      return null;
-  }
-});
-Mf(tg, Zf, function(a, b) {
-  var c = b.keyCode;
-  switch(c) {
-    case 37:
-    ;
-    case 97:
-      return Qd.v(a, Xd, Tf, function() {
-        return function(a) {
-          return ((a + 10) % 360 + 360) % 360;
-        };
-      }(c));
-    case 39:
-    ;
-    case 100:
-      return Qd.v(a, Xd, Tf, function() {
-        return function(a) {
-          return ((a - 10) % 360 + 360) % 360;
-        };
-      }(c));
-    case 32:
-    ;
-    case 70:
-      return Qd.v(a, Dc, Yf, 100);
-    default:
-      return null;
-  }
-});
-if ("undefined" === typeof ug) {
-  var ug = function() {
-    var a = Q ? Q(W) : Ld.call(null, W), b = Q ? Q(W) : Ld.call(null, W), c = Q ? Q(W) : Ld.call(null, W), d = Q ? Q(W) : Ld.call(null, W), e = Cc(W, ag, Af());
-    return new Lf(Zb("lander.input", "handle-keyup"), function() {
-      return function(a) {
-        return (K.b ? K.b(a) : K.call(null, a)).call(null, Uf);
-      };
-    }(a, b, c, d, e), Of, e, a, b, c, d);
-  }()
-}
-Mf(ug, Of, function(a, b) {
-  switch(b.keyCode) {
-    case 32:
-    ;
-    case 70:
-      return Qd.v(a, Dc, Yf, 0);
-    default:
-      return null;
-  }
-});
-function vg(a) {
-  return window.onload = function() {
-    var b = function() {
-      var a = new va(null, 1, [Uf, bg], null);
-      return Q ? Q(a) : Ld.call(null, a);
-    }();
-    setInterval(function(b) {
-      return function() {
-        sg.b ? sg.b(b) : sg.call(null, b);
-        rg.b ? rg.b(b) : rg.call(null, b);
-        return mg.a ? mg.a(b, a) : mg.call(null, b, a);
-      };
-    }(b), 1);
-    document.onkeydown = function(a) {
-      return function(b) {
-        return tg.a ? tg.a(a, b) : tg.call(null, a, b);
-      };
-    }(b);
-    return document.onkeyup = function(a) {
-      return function(b) {
-        return ug.a ? ug.a(a, b) : ug.call(null, a, b);
-      };
-    }(b);
-  }();
-}
-var wg = ["lander", "lunarlander", "init"], xg = this;
-wg[0] in xg || !xg.execScript || xg.execScript("var " + wg[0]);
-for (var yg;wg.length && (yg = wg.shift());) {
-  var zg;
-  if (zg = !wg.length) {
-    zg = void 0 !== vg;
-  }
-  zg ? xg[yg] = vg : xg = xg[yg] ? xg[yg] : xg[yg] = {};
-}
-;
+
 })();

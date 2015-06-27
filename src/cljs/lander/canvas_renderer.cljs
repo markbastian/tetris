@@ -1,5 +1,6 @@
-(ns lander.render
-  (:require [lander.terrain :as terrain]))
+(ns lander.canvas-renderer
+  (:require [lander.terrain :as terrain]
+            [lander.render :as r]))
 
 (defn fill-background [canvas color]
   (doto (.getContext canvas "2d")
@@ -92,18 +93,17 @@
         (draw-lander s)
         (.restore)))))
 
-(defmulti render (fn [state _] (@state :game-state)))
-
-(defmethod render :win [state canvas]
+(defmethod r/render :win [state canvas]
   (do
     (draw canvas @state)
     (win-screen canvas)))
 
-(defmethod render :lose [state canvas]
+(defmethod r/render :lose [state canvas]
   (do
     (draw canvas @state)
     (lose-screen canvas)))
 
-(defmethod render :live [state canvas] (draw canvas @state))
+(defmethod r/render :live [state canvas] (draw canvas @state))
 
-(defmethod render :default [_ canvas] (intro-screen canvas))
+(defmethod r/render :default [_ canvas] (intro-screen canvas))
+
