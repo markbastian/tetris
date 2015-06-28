@@ -34,9 +34,9 @@
 
 (defmulti handle-touchstart (fn [state _] (@state :game-state)))
 (defmethod handle-touchstart :default [state _](reset-game state))
-(defmethod handle-touchstart :live [state _](swap! state assoc :thrust 0))
+(defmethod handle-touchstart :live [state _](swap! state assoc :thrust 100))
 
 (defmulti handle-touchend (fn [state _] (@state :game-state)))
 (defmethod handle-touchend :default [_ _] ())
-(defmethod handle-touchend :live [state _](swap! state assoc :thrust 100))
+(defmethod handle-touchend :live [state _](swap! state assoc :thrust 0))
 

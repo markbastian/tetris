@@ -2,6 +2,9 @@
   (:require [lander.input :as in]
             [lander.game-loop :as gl]))
 
+;;http://www.html5rocks.com/en/mobile/touch/
+;;https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
+;;https://developer.mozilla.org/en-US/docs/Web/API/Touch
 (defn ^:export init[canvas]
   (set!
     (.-onload js/window)
