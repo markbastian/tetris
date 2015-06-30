@@ -1,7 +1,7 @@
 (ns lander.quil-lander
   (:require [quil.core :as q]
             [lander.quil-input :as qi]
-             [lander.simulation :as sim]
+            [lander.simulation :as sim]
             [lander.game-state :as gs]
             [lander.quil-renderer :as qr]))
 
@@ -16,7 +16,7 @@
   (do
     (gs/game-state state-ref)
     (sim/sim state-ref)
-    (qr/render state-ref)))
+    (qr/render @state-ref)))
 
 (q/defsketch
   lander

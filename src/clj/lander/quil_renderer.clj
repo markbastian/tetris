@@ -73,18 +73,18 @@
       (q/stroke 0 255 0)
       (draw-terrain terrain))))
 
-(defmulti render (fn [state] (@state :game-state)))
+(defmulti render :game-state)
 
 (defmethod render :win [state]
   (do
-    (draw @state)
+    (draw state)
     (win-screen)))
 
 (defmethod render :lose [state]
   (do
-    (draw @state)
+    (draw state)
     (lose-screen)))
 
-(defmethod render :live [state] (draw @state))
+(defmethod render :live [state] (draw state))
 
 (defmethod render :default [_] (intro-screen))

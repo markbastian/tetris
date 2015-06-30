@@ -14,7 +14,7 @@
     (= (q/key-code) 37) (swap! state update :theta (fn [theta] (mod (+ theta 10) 360)))
     (= (q/key-code) 39) (swap! state update :theta (fn [theta] (mod (- theta 10) 360)))
     (= (q/key-code) 32) (swap! state assoc :thrust 100)
-    :else (prn (q/key-code))))
+    :else nil))
 
 (defmulti handle-keyup (fn [state] (@state :game-state)))
 
