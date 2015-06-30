@@ -14,7 +14,7 @@
 
 (defn draw []
   (do
-    (gs/game-state state-ref)
+    (swap! state-ref gs/game-state)
     (sim/sim state-ref)
     (qr/render @state-ref)))
 

@@ -5,6 +5,6 @@
 
 (defn game-loop [state canvas]
   (do
-    (gs/game-state state)
+    (swap! state gs/game-state)
     (sim/sim state)
     (render/render state canvas)))

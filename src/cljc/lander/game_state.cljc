@@ -1,10 +1,10 @@
 (ns lander.game-state
   (:require [lander.terrain :as terrain]))
 
-(defmulti game-state (fn [state] (@state :game-state)))
+(defmulti game-state :game-state)
 
-(defmethod game-state :live [state-ref]
-  (let [{[_ x y vx vy] :state theta :theta terrain :terrain } @state-ref
+(defmethod game-state :live [state]
+  (let [{[_ x y vx vy] :state theta :theta terrain :terrain } state
         h (terrain/terrain-height x terrain)
         max-vel 10]
     (cond
@@ -12,9 +12,9 @@
            (zero? theta)
            (<= (- max-vel) vy max-vel)
            (<= (- max-vel) vx max-vel))
-      (swap! state-ref assoc :game-state :win)
+      (assoc state :game-state :win)
       (not (and (<= -100 x 100) (<= (+ h 5) y 200)))
-      (swap! state-ref assoc :game-state :lose)
-      :else nil)))
+      (assoc state :game-state :lose)
+      :else state)))
 
-(defmethod game-state :default [_] ())
+(defmethod game-state :default [state] state)
