@@ -23,4 +23,4 @@
         new-states (rk/rk-step [#(% 3) #(% 4) dvx dvy] state dt tableaus/classic-fourth-order)]
     (swap! state-ref into { :state new-states :time t })))
 
-(defmethod sim :default [state-ref] ())
+(defmethod sim :default [state-ref] @state-ref)

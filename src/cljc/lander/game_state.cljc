@@ -3,9 +3,8 @@
 
 (defmulti game-state :game-state)
 
-(defmethod game-state :live [state]
-  (let [{[_ x y vx vy] :state theta :theta terrain :terrain } state
-        h (terrain/terrain-height x terrain)
+(defmethod game-state :live [{[_ x y vx vy] :state theta :theta terrain :terrain :as state}]
+  (let [h (terrain/terrain-height x terrain)
         max-vel 10]
     (cond
       (and (< (- y 5) h)

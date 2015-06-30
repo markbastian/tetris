@@ -15,8 +15,7 @@
 (defn draw []
   (do
     (swap! state-ref gs/game-state)
-    (sim/sim state-ref)
-    (qr/render @state-ref)))
+    (qr/render (sim/sim state-ref))))
 
 (q/defsketch
   lander
