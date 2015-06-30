@@ -14,5 +14,5 @@
         (set! (.-onkeydown js/document) (fn [e] (in/handle-keydown state e)))
         (set! (.-onkeyup js/document) (fn [e] (in/handle-keyup state e)))
         (set! (.-ontouchstart js/document) (fn [e] (in/handle-touchstart state e)))
-        ;(set! (.-ontouchmove js/document) (fn [e] (in/handle-keyup state e)))
+        (set! (.-ontouchmove js/document) (fn [e] (in/handle-touchmove state e)))
         (set! (.-ontouchend js/document) (fn [e] (in/handle-touchend state e)))))))

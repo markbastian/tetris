@@ -17,4 +17,4 @@
       (swap! state-ref assoc :game-state :lose)
       :else nil)))
 
-(defmethod game-state :default [] ())
+(defmethod game-state :default [_] ())

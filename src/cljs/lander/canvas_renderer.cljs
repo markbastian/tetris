@@ -72,7 +72,7 @@
       draw-triangle
       (.restore))))
 
-(defn draw [canvas { :keys [state theta terrain] :as s}]
+(defn draw [canvas { :keys [state theta terrain touch] :as s}]
   (let [xmin -100 xmax 100 ymin 0 ymax 200
         w (.-width canvas) h (.-height canvas)
         [_ px py vx vy] state]
@@ -84,6 +84,7 @@
         (.fillText (str "Elevation: " (- py (terrain/terrain-height px terrain))) 0 10)
         (.fillText (str "Rotation: " theta) 0 20)
         (.fillText (str "Y Velocity: " vy) 0 30)
+        ;(.fillText (str "touch: " (get touch 0) ", " (get touch 1)) 0 40)
         (.save)
         (.translate 0 h)
         (.scale 1 -1)
