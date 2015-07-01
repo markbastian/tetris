@@ -20,5 +20,5 @@
   :setup setup
   :draw draw
   :size [800 600]
-  :key-pressed (partial qi/handle-keydown state-ref)
-  :key-released (partial qi/handle-keyup state-ref))
+  :key-pressed #(swap! state-ref qi/handle-keydown)
+  :key-released #(swap! state-ref qi/handle-keyup))

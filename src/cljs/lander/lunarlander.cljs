@@ -11,8 +11,8 @@
     (let [state (atom { :game-state :before })]
       (do
         (js/setInterval #(gl/game-loop state canvas) 1)
-        (set! (.-onkeydown js/document) (fn [e] (in/handle-keydown state e)))
-        (set! (.-onkeyup js/document) (fn [e] (in/handle-keyup state e)))
-        (set! (.-ontouchstart js/document) (fn [e] (in/handle-touchstart state e)))
-        (set! (.-ontouchmove js/document) (fn [e] (in/handle-touchmove state e)))
-        (set! (.-ontouchend js/document) (fn [e] (in/handle-touchend state e)))))))
+        (set! (.-onkeydown js/document) (fn [e] (swap! state #(in/handle-keydown % e))))
+        (set! (.-onkeyup js/document) (fn [e] (swap! state #(in/handle-keyup % e))))
+        (set! (.-ontouchstart js/document) (fn [e] (swap! state #(in/handle-touchstart % e))))
+        ; (set! (.-ontouchmove js/document) (fn [e] (swap! state #(in/handle-touchmove % e))))
+        (set! (.-ontouchend js/document) (fn [e] (swap! state #(in/handle-touchend % e))))))))

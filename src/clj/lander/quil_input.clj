@@ -2,24 +2,24 @@
   (:require [lander.simulation :as sim]
             [quil.core :as q]))
 
-(defmulti handle-keydown (fn [state] (@state :game-state)))
+(defmulti handle-keydown :game-state)
 
 (defmethod handle-keydown :default [state]
   (case (q/key-code)
-    10 (sim/reset-game state)
-    nil))
+    10 (sim/reset-game)
+    state))
 
 (defmethod handle-keydown :live [state]
   (cond
-    (= (q/key-code) 37) (swap! state update :theta (fn [theta] (mod (+ theta 10) 360)))
-    (= (q/key-code) 39) (swap! state update :theta (fn [theta] (mod (- theta 10) 360)))
-    (= (q/key-code) 32) (swap! state assoc :thrust 100)
-    :else nil))
+    (= (q/key-code) 37) (update state :theta (fn [theta] (mod (+ theta 10) 360)))
+    (= (q/key-code) 39) (update state :theta (fn [theta] (mod (- theta 10) 360)))
+    (= (q/key-code) 32) (assoc state :thrust 100)
+    :else state))
 
-(defmulti handle-keyup (fn [state] (@state :game-state)))
+(defmulti handle-keyup :game-state)
 
 (defmethod handle-keyup :default [state]
   (case (q/key-code)
-    32 (swap! state assoc :thrust 0)
-    nil))
+    32 (assoc state :thrust 0)
+    state))
 
