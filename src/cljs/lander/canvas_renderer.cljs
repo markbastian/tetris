@@ -96,15 +96,15 @@
 
 (defmethod r/render :win [state canvas]
   (do
-    (draw canvas @state)
+    (draw canvas state)
     (win-screen canvas)))
 
 (defmethod r/render :lose [state canvas]
   (do
-    (draw canvas @state)
+    (draw canvas state)
     (lose-screen canvas)))
 
-(defmethod r/render :live [state canvas] (draw canvas @state))
+(defmethod r/render :live [state canvas] (draw canvas state))
 
 (defmethod r/render :default [_ canvas] (intro-screen canvas))
 

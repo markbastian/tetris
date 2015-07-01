@@ -1,3 +1,3 @@
 (ns lander.render)
 
-(defmulti render (fn [state _] (@state :game-state)))
+(defmulti render (fn [state _] (state :game-state)))

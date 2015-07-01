@@ -4,7 +4,4 @@
             [lander.game-state :as gs]))
 
 (defn game-loop [state canvas]
-  (do
-    (swap! state gs/game-state)
-    (sim/sim state)
-    (render/render state canvas)))
+  (render/render(swap! state (comp gs/game-state sim/sim)) canvas))

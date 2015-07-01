@@ -12,10 +12,7 @@
   (q/frame-rate 100)
   (q/background 200))
 
-(defn draw []
-  (do
-    (swap! state-ref gs/game-state)
-    (qr/render (sim/sim state-ref))))
+(defn draw [] (qr/render (swap! state-ref (comp gs/game-state sim/sim))))
 
 (q/defsketch
   lander
