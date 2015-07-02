@@ -3,6 +3,14 @@
             [numerics.runge-kutta :as rk]
             [lander.terrain :as terrain]))
 
+(defn gen-landing [terrain-cells]
+  (let [i (rand-int (count terrain-cells))
+        a (nth terrain-cells (dec i))
+        b (nth terrain-cells i)
+        c (nth terrain-cells (inc i))
+        h (second b)]
+    (update-in terrain-cells [(first a) h] [(first c) h])))
+
 (defn reset-game []
   { :game-state :live
    :state [0 0 190 0 0]

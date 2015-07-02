@@ -27,10 +27,13 @@
 
 (defn generate [ic steps] (nth (iterate subdivide ic) steps))
 
+(defn terrain-array [ic steps] (->> (generate ic steps) :cells (sort-by first) vals vec))
+
 (defn gen-real [ic steps minx maxx]
-  (vec (let [{ :keys [cells] } (generate ic steps)
-             m (apply min (vals cells))]
+  (vec (let [heights (terrain-array ic steps)
+             dx (/ (- maxx minx) (dec (count heights)))
+             m (apply min heights)]
          (sort
            (zipmap
-             (map #(+ minx (* (- maxx minx) (double (/ % (dec (count cells)))))) (keys cells))
-             (map #(- % m) (vals cells)))))))
+             (for [i (range (count heights))] (double (+ minx (* i dx))))
+             (map #(- % m) heights))))))

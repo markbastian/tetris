@@ -6406,31 +6406,7 @@ Rf(tg, Tf, function(a) {
   return a;
 });
 if ("undefined" === typeof zg) {
-  var zg, Ag = Q ? Q(W) : Pd.call(null, W), Bg = Q ? Q(W) : Pd.call(null, W), Cg = Q ? Q(W) : Pd.call(null, W), Dg = Q ? Q(W) : Pd.call(null, W), Eg = Ic(W, fg, Ff());
-  zg = new Qf(ac("lander.game-state", "game-state"), Yf, Tf, Eg, Ag, Bg, Cg, Dg);
-}
-Rf(zg, dg, function(a) {
-  a = Wc(a) ? Id(Qd, a) : a;
-  var b = Hc(a, Xf);
-  M(b, 0);
-  var c = M(b, 1), d = M(b, 2), e = M(b, 3), b = M(b, 4), f = Hc(a, be), g = Hc(a, $f), g = ng(c, g);
-  return d - 5 < g && 0 === f && -10 <= b && 10 >= b && -10 <= e && 10 >= e ? Jc.h(a, Yf, ig) : -100 <= c && 100 >= c && g + 5 <= d && 200 >= d ? a : Jc.h(a, Yf, Wf);
-});
-Rf(zg, Tf, function(a) {
-  return a;
-});
-if ("undefined" === typeof Fg) {
-  var Fg = function() {
-    var a = Q ? Q(W) : Pd.call(null, W), b = Q ? Q(W) : Pd.call(null, W), c = Q ? Q(W) : Pd.call(null, W), d = Q ? Q(W) : Pd.call(null, W), e = Ic(W, fg, Ff());
-    return new Qf(ac("lander.render", "render"), function() {
-      return function(a) {
-        return a.b ? a.b(Yf) : a.call(null, Yf);
-      };
-    }(a, b, c, d, e), Tf, e, a, b, c, d);
-  }()
-}
-;if ("undefined" === typeof Gg) {
-  var Gg = function() {
+  var zg = function() {
     var a = Q ? Q(W) : Pd.call(null, W), b = Q ? Q(W) : Pd.call(null, W), c = Q ? Q(W) : Pd.call(null, W), d = Q ? Q(W) : Pd.call(null, W), e = Ic(W, fg, Ff());
     return new Qf(ac("lander.input", "handle-keydown"), function() {
       return function(a) {
@@ -6439,17 +6415,18 @@ if ("undefined" === typeof Fg) {
     }(a, b, c, d, e), Tf, e, a, b, c, d);
   }()
 }
-Rf(Gg, Tf, function(a, b) {
-  switch(b.keyCode) {
+Rf(zg, Tf, function(a, b) {
+  switch(b) {
+    case 10:
+    ;
     case 13:
       return sg();
     default:
       return a;
   }
 });
-Rf(Gg, dg, function(a, b) {
-  var c = b.keyCode;
-  switch(c) {
+Rf(zg, dg, function(a, b) {
+  switch(b) {
     case 37:
     ;
     case 97:
@@ -6457,7 +6434,7 @@ Rf(Gg, dg, function(a, b) {
         return function(a) {
           return ((a + 10) % 360 + 360) % 360;
         };
-      }(c));
+      }(b));
     case 39:
     ;
     case 100:
@@ -6465,7 +6442,7 @@ Rf(Gg, dg, function(a, b) {
         return function(a) {
           return ((a - 10) % 360 + 360) % 360;
         };
-      }(c));
+      }(b));
     case 32:
     ;
     case 70:
@@ -6474,8 +6451,8 @@ Rf(Gg, dg, function(a, b) {
       return a;
   }
 });
-if ("undefined" === typeof Hg) {
-  var Hg = function() {
+if ("undefined" === typeof Ag) {
+  var Ag = function() {
     var a = Q ? Q(W) : Pd.call(null, W), b = Q ? Q(W) : Pd.call(null, W), c = Q ? Q(W) : Pd.call(null, W), d = Q ? Q(W) : Pd.call(null, W), e = Ic(W, fg, Ff());
     return new Qf(ac("lander.input", "handle-keyup"), function() {
       return function(a) {
@@ -6484,8 +6461,8 @@ if ("undefined" === typeof Hg) {
     }(a, b, c, d, e), Tf, e, a, b, c, d);
   }()
 }
-Rf(Hg, Tf, function(a, b) {
-  switch(b.keyCode) {
+Rf(Ag, Tf, function(a, b) {
+  switch(b) {
     case 32:
     ;
     case 70:
@@ -6494,39 +6471,63 @@ Rf(Hg, Tf, function(a, b) {
       return a;
   }
 });
-if ("undefined" === typeof Ig) {
-  var Ig = function() {
+if ("undefined" === typeof Bg) {
+  var Bg = function() {
     var a = Q ? Q(W) : Pd.call(null, W), b = Q ? Q(W) : Pd.call(null, W), c = Q ? Q(W) : Pd.call(null, W), d = Q ? Q(W) : Pd.call(null, W), e = Ic(W, fg, Ff());
-    return new Qf(ac("lander.input", "handle-touchstart"), function() {
+    return new Qf(ac("lander.multitouch", "handle-touchstart"), function() {
       return function(a) {
         return a.b ? a.b(Yf) : a.call(null, Yf);
       };
     }(a, b, c, d, e), Tf, e, a, b, c, d);
   }()
 }
-Rf(Ig, Tf, function() {
+Rf(Bg, Tf, function() {
   return sg();
 });
-Rf(Ig, dg, function(a) {
+Rf(Bg, dg, function(a) {
   return Jc.h(a, cg, 100);
+});
+if ("undefined" === typeof Cg) {
+  var Cg = function() {
+    var a = Q ? Q(W) : Pd.call(null, W), b = Q ? Q(W) : Pd.call(null, W), c = Q ? Q(W) : Pd.call(null, W), d = Q ? Q(W) : Pd.call(null, W), e = Ic(W, fg, Ff());
+    return new Qf(ac("lander.multitouch", "handle-touchend"), function() {
+      return function(a) {
+        return a.b ? a.b(Yf) : a.call(null, Yf);
+      };
+    }(a, b, c, d, e), Tf, e, a, b, c, d);
+  }()
+}
+Rf(Cg, Tf, function(a) {
+  return a;
+});
+Rf(Cg, dg, function(a) {
+  return Jc.h(a, cg, 0);
+});
+if ("undefined" === typeof Dg) {
+  var Dg, Eg = Q ? Q(W) : Pd.call(null, W), Fg = Q ? Q(W) : Pd.call(null, W), Gg = Q ? Q(W) : Pd.call(null, W), Hg = Q ? Q(W) : Pd.call(null, W), Ig = Ic(W, fg, Ff());
+  Dg = new Qf(ac("lander.game-state", "game-state"), Yf, Tf, Ig, Eg, Fg, Gg, Hg);
+}
+Rf(Dg, dg, function(a) {
+  a = Wc(a) ? Id(Qd, a) : a;
+  var b = Hc(a, Xf);
+  M(b, 0);
+  var c = M(b, 1), d = M(b, 2), e = M(b, 3), b = M(b, 4), f = Hc(a, be), g = Hc(a, $f), g = ng(c, g);
+  return d - 5 < g && 0 === f && -10 <= b && 10 >= b && -10 <= e && 10 >= e ? Jc.h(a, Yf, ig) : -100 <= c && 100 >= c && g + 5 <= d && 200 >= d ? a : Jc.h(a, Yf, Wf);
+});
+Rf(Dg, Tf, function(a) {
+  return a;
 });
 if ("undefined" === typeof Jg) {
   var Jg = function() {
     var a = Q ? Q(W) : Pd.call(null, W), b = Q ? Q(W) : Pd.call(null, W), c = Q ? Q(W) : Pd.call(null, W), d = Q ? Q(W) : Pd.call(null, W), e = Ic(W, fg, Ff());
-    return new Qf(ac("lander.input", "handle-touchend"), function() {
+    return new Qf(ac("lander.render", "render"), function() {
       return function(a) {
         return a.b ? a.b(Yf) : a.call(null, Yf);
       };
     }(a, b, c, d, e), Tf, e, a, b, c, d);
   }()
 }
-Rf(Jg, Tf, function(a) {
-  return a;
-});
-Rf(Jg, dg, function(a) {
-  return Jc.h(a, cg, 0);
-});
-function Kg(a) {
+;function Kg(a) {
   return window.onload = function() {
     var b = function() {
       var a = new ua(null, 1, [Yf, gg], null);
@@ -6534,15 +6535,16 @@ function Kg(a) {
     }();
     setInterval(function(b) {
       return function() {
-        var d = Ud.a(b, Nd.a(zg, tg));
-        return Fg.a ? Fg.a(d, a) : Fg.call(null, d, a);
+        var d = Ud.a(b, Nd.a(Dg, tg));
+        return Jg.a ? Jg.a(d, a) : Jg.call(null, d, a);
       };
     }(b), 1);
     document.onkeydown = function(a) {
       return function(b) {
         return Ud.a(a, function() {
           return function(a) {
-            return Gg.a ? Gg.a(a, b) : Gg.call(null, a, b);
+            var c = b.keyCode;
+            return zg.a ? zg.a(a, c) : zg.call(null, a, c);
           };
         }(a));
       };
@@ -6551,7 +6553,8 @@ function Kg(a) {
       return function(b) {
         return Ud.a(a, function() {
           return function(a) {
-            return Hg.a ? Hg.a(a, b) : Hg.call(null, a, b);
+            var c = b.keyCode;
+            return Ag.a ? Ag.a(a, c) : Ag.call(null, a, c);
           };
         }(a));
       };
@@ -6560,7 +6563,8 @@ function Kg(a) {
       return function(b) {
         return Ud.a(a, function() {
           return function(a) {
-            return Ig.a ? Ig.a(a, b) : Ig.call(null, a, b);
+            var c = b.keyCode;
+            return Bg.a ? Bg.a(a, c) : Bg.call(null, a, c);
           };
         }(a));
       };
@@ -6569,7 +6573,8 @@ function Kg(a) {
       return function(b) {
         return Ud.a(a, function() {
           return function(a) {
-            return Jg.a ? Jg.a(a, b) : Jg.call(null, a, b);
+            var c = b.keyCode;
+            return Cg.a ? Cg.a(a, c) : Cg.call(null, a, c);
           };
         }(a));
       };
@@ -6656,7 +6661,7 @@ function Rg(a, b) {
   d.restore();
   return d;
 }
-Rf(Fg, ig, function(a, b) {
+Rf(Jg, ig, function(a, b) {
   Rg(b, a);
   var c = b.getContext("2d");
   c.fillStyle = "#00FF00";
@@ -6666,7 +6671,7 @@ Rf(Fg, ig, function(a, b) {
   c.fillText("Press Enter/Return key to play again!", 100, 220);
   return c;
 });
-Rf(Fg, Wf, function(a, b) {
+Rf(Jg, Wf, function(a, b) {
   Rg(b, a);
   var c = b.getContext("2d");
   c.fillStyle = "#00FF00";
@@ -6675,10 +6680,10 @@ Rf(Fg, Wf, function(a, b) {
   c.fillText("Press Enter/Return key to play again!", 100, 210);
   return c;
 });
-Rf(Fg, dg, function(a, b) {
+Rf(Jg, dg, function(a, b) {
   return Rg(b, a);
 });
-Rf(Fg, Tf, function(a, b) {
+Rf(Jg, Tf, function(a, b) {
   Pg(b);
   var c = b.getContext("2d");
   c.fillStyle = "#00FF00";
