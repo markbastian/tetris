@@ -17,6 +17,7 @@
    :time (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
    :theta 0
    :thrust 0
+   :landing-zones [-50 50]
    :terrain (terrain/gen-real {:roughness 100 :cells { 0 0 1 0 } } 10 -100 100) })
 
 (defmulti sim :game-state)

@@ -35,7 +35,7 @@
   (q/text "Press Enter/Return key to play again!" 100 210)
   (q/pop-matrix))
 
-(defn draw [{ :keys [state theta thrust terrain]}]
+(defn draw [{ :keys [state theta thrust landing-zones terrain]}]
   (let [w (q/width)
         h (q/height)
         min-dim (min w h)
@@ -43,8 +43,6 @@
         [_ px py _ vy] state]
     (do
       (q/background 0 0 0)
-      ;(q/stroke 0 255 0)
-      ;(q/fill 255 0 0)
 
       (q/text (str "Elevation: " (- py (terrain/terrain-height px terrain))) 0 15)
       (q/text (str "Rotation: " theta) 0 30)
@@ -55,6 +53,9 @@
 
       (q/scale (/ min-dim dim))
       (q/stroke-weight (/ dim min-dim))
+
+      (doseq [zone landing-zones :let [h (terrain/terrain-height zone terrain)]]
+        (q/rect (- zone 5) h 10 2))
 
       (q/push-matrix)
       (q/translate px py)

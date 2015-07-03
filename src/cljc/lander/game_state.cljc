@@ -3,17 +3,19 @@
 
 (defmulti game-state :game-state)
 
-(defmethod game-state :live [{[_ x y vx vy] :state theta :theta terrain :terrain :as state}]
-  (let [h (terrain/terrain-height x terrain)
+(defmethod game-state :live [{ :keys [state theta terrain landing-zones] :as st}]
+  (let [[_ x y vx vy] state
+        h (terrain/terrain-height x terrain)
         max-vel 10]
     (cond
       (and (< (- y 5) h)
+           (some #(-> % (- x) Math/abs (<= 2.0)) landing-zones)
            (zero? theta)
            (<= (- max-vel) vy max-vel)
            (<= (- max-vel) vx max-vel))
-      (assoc state :game-state :win)
+      (assoc st :game-state :win)
       (not (and (<= -100 x 100) (<= (+ h 5) y 200)))
-      (assoc state :game-state :lose)
-      :else state)))
+      (assoc st :game-state :lose)
+      :else st)))
 
 (defmethod game-state :default [state] state)
