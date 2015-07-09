@@ -8,11 +8,12 @@
         h (terrain/terrain-height x terrain)
         max-vel 10]
     (cond
-      (and (< (- y 5) h)
-           (some #(-> % (- x) Math/abs (<= 2.0)) landing-zones)
-           (zero? theta)
-           (<= (- max-vel) vy max-vel)
-           (<= (- max-vel) vx max-vel))
+      (and
+        (< (- y 5) h)
+        (some #(-> % (- x) Math/abs (<= 2.0)) landing-zones)
+        (zero? theta)
+        (<= (- max-vel) vy max-vel)
+        (<= (- max-vel) vx max-vel))
       (assoc st :game-state :win)
       (not (and (<= -100 x 100) (<= (+ h 5) y 200)))
       (assoc st :game-state :lose)

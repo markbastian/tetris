@@ -1,16 +1,23 @@
 (ns lander.terrain)
 
-(defn terrain-height [x t]
-  (let [xmin (-> t first first)
-        dt (Math/abs (apply - (map first (take 2 t))))
-        i (int (/ (- x xmin) dt))
-        xi (get-in t [i 0])
-        yi (get-in t [i 1])
-        xf (get-in t [(inc i) 0])
-        yf (get-in t [(inc i) 1])]
-    (if xf
-      (+ yi (* (- yf yi) (/ (- x xi) (- xf xi))))
-      yi)))
+(defn terrain-height
+  ([x t xmin xmax]
+   (let [dt (/ (- xmax xmin) (-> t count dec))
+         i (int (/ (- x xmin) dt))
+         xi (get-in t [i 0])
+         yi (get-in t [i 1])
+         xf (get-in t [(inc i) 0])
+         yf (get-in t [(inc i) 1])]
+     (if xf
+       (+ yi (* (- yf yi) (/ (- x xi) (- xf xi))))
+       yi)))
+  ([x t]
+   (let [xmin (-> t first first)
+         xmax (-> t last first)]
+     (cond
+       (< x xmin) (-> t first second)
+       (> x xmax) (-> t last second)
+       :else (terrain-height x t xmin xmax)))))
 
 (defn double-indices-1d [cells]
   (zipmap (map #(* 2 %) (keys cells)) (vals cells)))
