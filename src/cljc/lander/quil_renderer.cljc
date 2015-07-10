@@ -40,7 +40,8 @@
         h (q/height)
         min-dim (min w h)
         dim 200
-        [_ px py _ vy] state]
+        [_ px py _ vy] state
+        {:keys [locations width]} landing-zones]
     (do
       (q/background 0 0 0)
 
@@ -54,8 +55,9 @@
       (q/scale (/ min-dim dim))
       (q/stroke-weight (/ dim min-dim))
 
-      (doseq [zone landing-zones :let [h (terrain/terrain-height zone terrain)]]
-        (q/rect (- zone 5) h 10 2))
+      (doseq [zone locations
+              :let [h (terrain/terrain-height zone terrain)]]
+        (q/rect (- zone (* 0.5 width)) (dec h) width 2))
 
       (q/push-matrix)
       (q/translate px py)

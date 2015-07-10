@@ -3,22 +3,18 @@
             [numerics.runge-kutta :as rk]
             [lander.terrain :as terrain]))
 
-(defn gen-landing [terrain-cells]
-  (let [i (rand-int (count terrain-cells))
-        a (nth terrain-cells (dec i))
-        b (nth terrain-cells i)
-        c (nth terrain-cells (inc i))
-        h (second b)]
-    (update-in terrain-cells [(first a) h] [(first c) h])))
-
 (defn reset-game []
-  { :game-state :live
-   :state [0 0 190 0 0]
-   :time (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
-   :theta 0
-   :thrust 0
-   :landing-zones [-50 50]
-   :terrain (terrain/gen-real {:roughness 100 :cells { 0 0 1 0 } } 10 -100 100) })
+  (let [lz { :locations [-50 50] :width 10 }
+        t (terrain/gen-real {:roughness 100 :cells { 0 0 1 0 } } 8 -100 100)]
+    { :game-state :live
+     :state [0 0 190 0 0]
+     :time (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
+     :theta 0
+     :thrust 0
+     :landing-zones lz
+     :terrain (reduce
+                #(terrain/make-flat [(- %2 (* 0.5 (lz :width))) (+ %2 (* 0.5 (lz :width)))] (terrain/terrain-height %2 %1) %1)
+                t (lz :locations)) }))
 
 (defmulti sim :game-state)
 

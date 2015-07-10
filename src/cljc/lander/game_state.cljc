@@ -5,12 +5,13 @@
 
 (defmethod game-state :live [{ :keys [state theta terrain landing-zones] :as st}]
   (let [[_ x y vx vy] state
+        {:keys [locations _] } landing-zones
         h (terrain/terrain-height x terrain)
         max-vel 10]
     (cond
       (and
         (< (- y 5) h)
-        (some #(-> % (- x) Math/abs (<= 2.0)) landing-zones)
+        (some #(-> % (- x) Math/abs (<= 2.0)) locations)
         (zero? theta)
         (<= (- max-vel) vy max-vel)
         (<= (- max-vel) vx max-vel))

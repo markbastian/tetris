@@ -36,6 +36,9 @@
 
 (defn terrain-array [ic steps] (->> (generate ic steps) :cells (sort-by first) vals vec))
 
+(defn make-flat [[lo hi] flat-height terrain]
+  (vec (sort-by first (for [[x h] terrain] (if (<= lo x hi) [x flat-height] [x h])))))
+
 (defn gen-real [ic steps minx maxx]
   (vec (let [heights (terrain-array ic steps)
              dx (/ (- maxx minx) (dec (count heights)))
