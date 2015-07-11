@@ -3,8 +3,9 @@
 
 (defmulti game-state :game-state)
 
-(defmethod game-state :live [{ :keys [state theta terrain landing-zones lander] :as st}]
-  (let [[_ x y vx vy] state
+(defmethod game-state :live [{ :keys [terrain landing-zones lander] :as st}]
+  (let [{ :keys [state theta]} lander
+        [_ x y vx vy] state
         {:keys [locations _] } landing-zones
         h (terrain/terrain-height x terrain)
         max-vel (lander :max-landing-velocity)]

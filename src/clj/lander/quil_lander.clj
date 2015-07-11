@@ -20,4 +20,4 @@
   :middleware [m/fun-mode]
   :size [800 600]
   :key-pressed (fn [s { :keys [key-code] }] (in/handle-keydown s key-code))
-  :key-released (fn [s] (assoc s :thrust 0)))
+  :key-released (fn [s] (assoc-in s [:lander :thrust] 0)))

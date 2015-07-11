@@ -35,8 +35,9 @@
   (q/text "Press Enter/Return key to play again!" 100 210)
   (q/pop-matrix))
 
-(defn draw [{ :keys [state theta thrust landing-zones terrain lander]}]
-  (let [w (q/width)
+(defn draw [{ :keys [landing-zones terrain lander]}]
+  (let [{:keys [state theta thrust] } lander
+        w (q/width)
         h (q/height)
         { lander-height :height lander-width :width } lander
         min-dim (min w h)

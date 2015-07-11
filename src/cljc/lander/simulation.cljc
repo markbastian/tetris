@@ -6,11 +6,13 @@
 (def default-state
   { :game-state :live
    :gravity -9.81
-   :state [0 0 190 0 0]
-   :theta 0
-   :thrust 0
    :landing-zones { :locations [-50 50] :width 10 }
-   :lander { :width 6 :height 10 :max-landing-velocity 10 }})
+   :lander {:width 6
+            :height 10
+            :state [0 0 190 0 0]
+            :theta 0
+            :thrust 0
+            :max-landing-velocity 10 }})
 
 (defn flatten-landing-zones [terrain lzs]
   (reduce
@@ -28,12 +30,13 @@
 
 (defmulti sim :game-state)
 
-(defmethod sim :live [{:keys [theta thrust time state gravity] :as s}]
-  (let [t (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
+(defmethod sim :live [{:keys [time lander gravity] :as s}]
+  (let [{:keys [theta thrust state] } lander
+        t (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
         dt (* (- t time) 1E-3)
         dvx (fn [_] (-> theta (* Math/PI) (/ -180) Math/sin (* thrust)))
         dvy (fn [_] (+ gravity (-> theta (* Math/PI) (/ -180) Math/cos (* thrust))))
         new-states (rk/rk-step [#(% 3) #(% 4) dvx dvy] state dt tableaus/classic-fourth-order)]
-    (into s { :state new-states :time t })))
+    (-> s (into { :time t }) (assoc-in [:lander :state] new-states))))
 
 (defmethod sim :default [state] state)
