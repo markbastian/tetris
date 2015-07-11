@@ -16,7 +16,7 @@
     (q/text "Press Enter/Return key to play!" 30 50)
     (q/text "Press left and right arrow keys to rotate." 30 60)
     (q/text "Press 'f' or space to engage rocket." 30 70)
-    (q/text "Win by making a gentle landing (<= 10 m/s) with 0 rotation." 30 80)
+    (q/text "Win by making a gentle landing (<= 10 m/s) with 0 rotation on one of the platforms." 30 80)
     (q/text "Leaving the screen to the left, right, or top will cause you to lose." 30 90)
     (q/pop-matrix)))
 
@@ -35,9 +35,10 @@
   (q/text "Press Enter/Return key to play again!" 100 210)
   (q/pop-matrix))
 
-(defn draw [{ :keys [state theta thrust landing-zones terrain]}]
+(defn draw [{ :keys [state theta thrust landing-zones terrain lander]}]
   (let [w (q/width)
         h (q/height)
+        { lander-height :height lander-width :width } lander
         min-dim (min w h)
         dim 200
         [_ px py _ vy] state
@@ -66,8 +67,10 @@
         (do (q/fill 255 0 0)
             (q/stroke 255 0 0)
             (q/push-matrix)
-            (q/translate 0 -5)
-            (q/triangle -3 -5 0 5 3 -5)
+            (q/translate 0 (* -0.5 lander-height))
+            (q/triangle (* -0.5 lander-width)  (* -0.5 lander-height)
+                        0 (* 0.5 lander-height)
+                        (* 0.5 lander-width)  (* -0.5 lander-height))
             (q/pop-matrix)))
       (q/fill 255)
       (q/stroke 255)
