@@ -5,11 +5,12 @@
 
 (def default-state
   { :game-state :live
+   :world { :minx -150 :maxx 150 :miny 0 :maxy 400 }
    :gravity -9.81
    :landing-zones { :locations [-50 50] :width 10 }
    :lander {:width 6
             :height 10
-            :state [0 0 190 0 0]
+            :state [0 0 400 0 0]
             :theta 0
             :thrust 0
             :max-landing-velocity 10 }})
@@ -23,10 +24,11 @@
     terrain (lzs :locations)))
 
 (defn reset-game []
-  (let [t (terrain/gen-real {:roughness 100 :cells { 0 0 1 0 } } 8 -100 100)]
+  (let [{ { :keys [minx maxx] } :world lzs :landing-zones } default-state
+        t (terrain/gen-real {:roughness 100 :cells { 0 0 1 0 } } 8 minx maxx)]
     (into default-state
           {:time (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
-           :terrain (flatten-landing-zones t (default-state :landing-zones))})))
+           :terrain (flatten-landing-zones t lzs)})))
 
 (defmulti sim :game-state)
 

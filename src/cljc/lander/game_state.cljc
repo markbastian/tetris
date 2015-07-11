@@ -3,8 +3,9 @@
 
 (defmulti game-state :game-state)
 
-(defmethod game-state :live [{ :keys [terrain landing-zones lander] :as st}]
+(defmethod game-state :live [{ :keys [terrain landing-zones lander world] :as st}]
   (let [{ :keys [state theta]} lander
+        { :keys [minx maxx maxy]} world
         [_ x y vx vy] state
         {:keys [locations _] } landing-zones
         h (terrain/terrain-height x terrain)
@@ -17,7 +18,7 @@
         (<= (- max-vel) vy max-vel)
         (<= (- max-vel) vx max-vel))
       (assoc st :game-state :win)
-      (not (and (<= -100 x 100) (<= (+ h 5) y 200)))
+      (not (and (<= minx x maxx) (<= (+ h (* 0.5 (lander :height))) y maxy)))
       (assoc st :game-state :lose)
       :else st)))
 

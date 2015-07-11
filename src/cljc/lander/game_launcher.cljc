@@ -24,5 +24,7 @@
     :key-pressed (fn [s { :keys [key-code] }] (in/handle-keydown s key-code))
     :key-released (fn [s] (assoc-in s [:lander :thrust] 0))))
 
+#?(:clj (launch-sketch { :width 800 :height 600 }))
+
 #?(:cljs (defn ^:export launch-app[host width height]
            (launch-sketch { :width width :height height :host host})))

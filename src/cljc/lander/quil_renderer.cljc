@@ -2,7 +2,8 @@
   (:require [quil.core :as q]
             [lander.terrain :as terrain]))
 
-(defn draw-terrain [terrain]
+(defn draw-terrain [{ :keys [terrain]}]
+  (q/stroke 0 255 0)
   (let [terrain-points (partition 2 1 terrain)]
     (doseq [[[x0 y0] [x1 y1]] terrain-points]
       (q/line x0 y0 x1 y1))))
@@ -36,50 +37,63 @@
   (q/text "Press Enter/Return key to play again!" 100 210)
   (q/pop-matrix))
 
-(defn draw [{ :keys [landing-zones terrain lander]}]
-  (let [{:keys [state theta thrust] } lander
-        w (q/width)
-        h (q/height)
-        { lander-height :height lander-width :width } lander
-        min-dim (min w h)
-        dim 200
-        [_ px py _ vy] state
-        {:keys [locations width]} landing-zones]
+(defn draw-stats [{ terrain :terrain {[_ px py _ vy] :state theta :theta } :lander }]
+  (q/stroke 255)
+  (q/fill 255)
+  (q/text (str "Elevation: " (- py (terrain/terrain-height px terrain))) 0 15)
+  (q/text (str "Rotation: " theta) 0 30)
+  (q/text (str "Y Velocity: " vy) 0 45))
+
+(defn draw-lander [{{[_ px py] :state :keys [theta thrust width height]} :lander }]
+  (let [tw (* 0.5 width) th (* 0.5 height)]
+    (q/push-matrix)
+    (q/translate px py)
+    (q/rotate (q/radians theta))
+    (when (not= 0 thrust)
+      (do (q/fill 255 0 0)
+          (q/stroke 255 0 0)
+          (q/push-matrix)
+          (let []
+            (q/translate 0 (- th))
+            (q/triangle (- tw) (- th) 0 th tw (- th)))
+          (q/pop-matrix)))
+    (q/fill 255)
+    (q/stroke 255)
+    (q/triangle (- tw) (- th) 0 th tw (- th))
+    (q/pop-matrix)))
+
+(defn draw-landing-zones [{{ :keys [locations width] } :landing-zones terrain :terrain }]
+  (q/stroke 0 0 255)
+  (q/fill 0 0 255)
+  (doseq [zone locations
+          :let [h (terrain/terrain-height zone terrain)]]
+    (q/rect (- zone (* 0.5 width)) (dec h) width 2)))
+
+(defn draw-bounds [{{ :keys [minx maxx miny maxy] } :world }]
+  (q/stroke 255)
+  (q/no-fill)
+  (q/rect minx miny (- maxx minx) (- maxy miny)))
+
+(defn draw [state]
+  (let [{{ :keys [minx maxx miny maxy] } :world } state
+        dx (- maxx minx) dy (- maxy miny)
+        max-world-dim (max dx dy)
+        w (q/width) h (q/height)
+        min-screen-dim (min w h)]
     (do
       (q/background 0 0 0)
-
-      (q/text (str "Elevation: " (- py (terrain/terrain-height px terrain))) 0 15)
-      (q/text (str "Rotation: " theta) 0 30)
-      (q/text (str "Y Velocity: " vy) 0 45)
+      (draw-stats state)
 
       (q/translate (* 0.5 w) h)
       (q/scale 1 -1)
+      (q/scale (/ min-screen-dim max-world-dim))
+      (q/stroke-weight (/ max-world-dim min-screen-dim))
 
-      (q/scale (/ min-dim dim))
-      (q/stroke-weight (/ dim min-dim))
-
-      (doseq [zone locations
-              :let [h (terrain/terrain-height zone terrain)]]
-        (q/rect (- zone (* 0.5 width)) (dec h) width 2))
-
-      (q/push-matrix)
-      (q/translate px py)
-      (q/rotate (q/radians theta))
-      (when (not= 0 thrust)
-        (do (q/fill 255 0 0)
-            (q/stroke 255 0 0)
-            (q/push-matrix)
-            (q/translate 0 (* -0.5 lander-height))
-            (q/triangle (* -0.5 lander-width)  (* -0.5 lander-height)
-                        0 (* 0.5 lander-height)
-                        (* 0.5 lander-width)  (* -0.5 lander-height))
-            (q/pop-matrix)))
-      (q/fill 255)
-      (q/stroke 255)
-      (q/triangle -3 -5 0 5 3 -5)
-      (q/pop-matrix)
-      (q/stroke 0 255 0)
-      (draw-terrain terrain))))
+      (doto state
+        draw-bounds
+        draw-terrain
+        draw-landing-zones
+        draw-lander))))
 
 (defmulti render :game-state)
 
