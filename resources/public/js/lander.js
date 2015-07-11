@@ -745,7 +745,7 @@ var eb = function eb(b, c) {
     throw y("IAssociative.-assoc", b);
   }
   return e.call(null, b, c, d);
-}, hb = {}, ib = function ib(b, c) {
+}, gb = {}, ib = function ib(b, c) {
   if (b ? b.Cb : b) {
     return b.Cb(b, c);
   }
@@ -1997,7 +1997,7 @@ k.call = function() {
     a = this;
     return a.g.m ? a.g.m() : a.g.call(null);
   }
-  var A = null, A = function(Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, gb, ub, mb, Dc, Bd, cf) {
+  var A = null, A = function(Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, hb, ub, mb, Dc, Bd, cf) {
     switch(arguments.length) {
       case 1:
         return ma.call(this, Ea);
@@ -2032,17 +2032,17 @@ k.call = function() {
       case 16:
         return g.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa);
       case 17:
-        return f.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, gb);
+        return f.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, hb);
       case 18:
-        return e.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, gb, ub);
+        return e.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, hb, ub);
       case 19:
-        return d.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, gb, ub, mb);
+        return d.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, hb, ub, mb);
       case 20:
-        return c.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, gb, ub, mb, Dc);
+        return c.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, hb, ub, mb, Dc);
       case 21:
-        return b.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, gb, ub, mb, Dc, Bd);
+        return b.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, hb, ub, mb, Dc, Bd);
       case 22:
-        return a.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, gb, ub, mb, Dc, Bd, cf);
+        return a.call(this, Ea, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, A, Xa, hb, ub, mb, Dc, Bd, cf);
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -2151,7 +2151,7 @@ function ed(a) {
   return null == a ? !1 : a ? a.j & 4096 || a.rc ? !0 : a.j ? !1 : x(nb, a) : x(nb, a);
 }
 function fd(a) {
-  return null == a ? !1 : a ? a.j & 1024 || a.Vb ? !0 : a.j ? !1 : x(hb, a) : x(hb, a);
+  return null == a ? !1 : a ? a.j & 1024 || a.Vb ? !0 : a.j ? !1 : x(gb, a) : x(gb, a);
 }
 function gd(a) {
   return a ? a.j & 16384 || a.sc ? !0 : a.j ? !1 : x(pb, a) : x(pb, a);
@@ -7169,7 +7169,7 @@ k.call = function() {
     w(c) || V(a.name, b);
     return c.m ? c.m() : c.call(null);
   }
-  var A = null, A = function(A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, gb, ub, mb, Dc, Bd, cf) {
+  var A = null, A = function(A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, hb, ub, mb, Dc, Bd, cf) {
     switch(arguments.length) {
       case 1:
         return ma.call(this, A);
@@ -7204,17 +7204,17 @@ k.call = function() {
       case 16:
         return g.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa);
       case 17:
-        return f.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, gb);
+        return f.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, hb);
       case 18:
-        return e.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, gb, ub);
+        return e.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, hb, ub);
       case 19:
-        return d.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, gb, ub, mb);
+        return d.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, hb, ub, mb);
       case 20:
-        return c.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, gb, ub, mb, Dc);
+        return c.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, hb, ub, mb, Dc);
       case 21:
-        return b.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, gb, ub, mb, Dc, Bd);
+        return b.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, hb, ub, mb, Dc, Bd);
       case 22:
-        return a.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, gb, ub, mb, Dc, Bd, cf);
+        return a.call(this, A, W, Y, Z, ca, ea, ha, ka, pa, sa, va, Ba, Ia, Na, hc, Xa, hb, ub, mb, Dc, Bd, cf);
     }
     throw Error("Invalid arity: " + arguments.length);
   };
@@ -8433,8 +8433,9 @@ Dg(Jk, ph, function() {
   Fk("Press Enter/Return key to play!", 30, 50);
   Fk("Press left and right arrow keys to rotate.", 30, 60);
   Fk("Press 'f' or space to engage rocket.", 30, 70);
-  Fk("Win by making a gentle landing (\x3c\x3d 10 m/s) with 0 rotation on one of the platforms.", 30, 80);
-  Fk("Leaving the screen to the left, right, or top will cause you to lose.", 30, 90);
+  Fk("Win by making a gentle landing (\x3c\x3d 10 m/s)", 30, 80);
+  Fk("with 0 rotation on one of the platforms.", 30, 90);
+  Fk("Leaving the screen to the left, right, or top will cause you to lose.", 30, 100);
   return Ak().popMatrix();
 });
 B("state map is missing :navigation-3d key. ");
@@ -8536,7 +8537,7 @@ Dg(Zk, Mi, function(a) {
   var b = ld(a) ? ce(ne, a) : a, c = O(b, oi), d = O(b, Yi), e = O(b, Sg), f = ld(e) ? ce(ne, e) : e, g = O(f, Fh), h = O(f, Hh), l = N(g, 0), m = N(g, 1), n = N(g, 2), p = N(g, 3), q = N(g, 4), r = ld(d) ? ce(ne, d) : d, t = O(r, Vh), v = O(r, mh), z = lj(m, c), C = e.a ? e.a(Og) : e.call(null, Og);
   return w(function() {
     var D = n - .5 * (e.a ? e.a(bj) : e.call(null, bj)) < z;
-    return D ? (D = ie(function(a, b, c, d, e, f, g, h, l, m, n, p, q, r, t, v, z, C, D, Xa, gb, ub, mb) {
+    return D ? (D = ie(function(a, b, c, d, e, f, g, h, l, m, n, p, q, r, t, v, z, C, D, Xa, hb, ub, mb) {
       return function(a) {
         return Math.abs(a - h) <= .5 * (mb.a ? mb.a(xh) : mb.call(null, xh));
       };

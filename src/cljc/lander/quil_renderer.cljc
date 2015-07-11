@@ -16,8 +16,9 @@
     (q/text "Press Enter/Return key to play!" 30 50)
     (q/text "Press left and right arrow keys to rotate." 30 60)
     (q/text "Press 'f' or space to engage rocket." 30 70)
-    (q/text "Win by making a gentle landing (<= 10 m/s) with 0 rotation on one of the platforms." 30 80)
-    (q/text "Leaving the screen to the left, right, or top will cause you to lose." 30 90)
+    (q/text "Win by making a gentle landing (<= 10 m/s)" 30 80)
+    (q/text "with 0 rotation on one of the platforms." 30 90)
+    (q/text "Leaving the screen to the left, right, or top will cause you to lose." 30 100)
     (q/pop-matrix)))
 
 (defn win-screen []
