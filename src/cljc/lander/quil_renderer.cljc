@@ -63,8 +63,8 @@
     (q/pop-matrix)))
 
 (defn draw-landing-zones [{{ :keys [locations width] } :landing-zones terrain :terrain }]
-  (q/stroke 0 0 255)
-  (q/fill 0 0 255)
+  (q/stroke 255 0 0)
+  (q/fill 255 0 0)
   (doseq [zone locations
           :let [h (terrain/terrain-height zone terrain)]]
     (q/rect (- zone (* 0.5 width)) (dec h) width 2)))

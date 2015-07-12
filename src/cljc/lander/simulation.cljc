@@ -5,7 +5,7 @@
 
 (def default-state
   { :game-state :live
-   :world { :minx -150 :maxx 150 :miny 0 :maxy 400 }
+   :world { :minx -200 :maxx 200 :miny 0 :maxy 400 }
    :gravity -9.81
    :landing-zones { :locations [-50 50] :width 10 }
    :lander {:width 6
