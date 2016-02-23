@@ -37,19 +37,22 @@
   (q/text "Press Enter/Return key to play again!" 100 210)
   (q/pop-matrix))
 
-(defn draw-stats [{ terrain :terrain {[_ px py _ vy] :state theta :theta } :lander }]
-  (q/stroke 255)
-  (q/fill 255)
-  (q/text (str "Elevation: " (- py (terrain/terrain-height px terrain))) 0 15)
-  (q/text (str "Rotation: " theta) 0 30)
-  (q/text (str "Y Velocity: " vy) 0 45))
+(defn draw-stats [{:keys [terrain lander]}]
+  (let [{:keys [state theta fuel-mass] } lander
+        [_ px py _ vy] state]
+    (q/stroke 255)
+    (q/fill 255)
+    (q/text (str "Elevation: " (- py (terrain/terrain-height px terrain))) 0 15)
+    (q/text (str "Rotation: " theta) 0 30)
+    (q/text (str "Fuel: " fuel-mass) 0 45)
+    (q/text (str "Y Velocity: " vy) 0 60)))
 
 (defn draw-lander [{{[_ px py] :state :keys [theta thrust width height]} :lander }]
   (let [tw (* 0.5 width) th (* 0.5 height)]
     (q/push-matrix)
     (q/translate px py)
     (q/rotate (q/radians theta))
-    (when (not= 0 thrust)
+    (when (pos? thrust)
       (do (q/fill 255 0 0)
           (q/stroke 255 0 0)
           (q/push-matrix)

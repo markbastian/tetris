@@ -1,7 +1,5 @@
 (ns lander.simulation
-  (:require [numerics.tableaus :as tableaus]
-            [numerics.runge-kutta :as rk]
-            [lander.terrain :as terrain]))
+  (:require [lander.terrain :as terrain]))
 
 (def default-state
   { :game-state :live
@@ -13,6 +11,7 @@
             :state [0 0 400 0 0]
             :theta 0
             :thrust 0
+            :fuel-mass 1
             :max-landing-velocity 10 }})
 
 (defn flatten-landing-zones [terrain lzs]
@@ -33,12 +32,20 @@
 (defmulti sim :game-state)
 
 (defmethod sim :live [{:keys [time lander gravity] :as s}]
-  (let [{:keys [theta thrust state] } lander
+  (let [{:keys [theta thrust state fuel-mass] } lander
         t (.getTime #?(:clj (java.util.Date.) :cljs (js/Date.)))
         dt (* (- t time) 1E-3)
-        dvx (fn [_] (-> theta (* Math/PI) (/ -180) Math/sin (* thrust)))
-        dvy (fn [_] (+ gravity (-> theta (* Math/PI) (/ -180) Math/cos (* thrust))))
-        new-states (rk/rk-step [#(% 3) #(% 4) dvx dvy] state dt tableaus/classic-fourth-order)]
-    (-> s (into { :time t }) (assoc-in [:lander :state] new-states))))
+        remaining-fuel (max 0.0 (if (pos? thrust) (- fuel-mass dt) fuel-mass))
+        effective-thrust (if (pos? remaining-fuel) thrust 0.0)
+        f [(-> theta (* Math/PI) (/ -180) Math/sin (* effective-thrust))
+           (+ gravity (-> theta (* Math/PI) (/ -180) Math/cos (* effective-thrust)))]
+        v-new (mapv + [(state 3) (state 4)] (map #(* % dt) f))
+        p-new (mapv + [(state 1) (state 2)] (map #(* % dt) v-new))
+        new-states (reduce into [dt] [p-new v-new])]
+    (-> s
+        (into { :time t })
+        (update :lander into { :fuel-mass remaining-fuel
+                              :state new-states
+                              :thrust effective-thrust}))))
 
 (defmethod sim :default [state] state)

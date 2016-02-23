@@ -6,7 +6,6 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "0.0-3308"]
-                 [numerics "0.1.0-SNAPSHOT"]
                  [quil "2.2.6"]]
 
   :main lander.launcher

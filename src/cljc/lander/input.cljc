@@ -12,7 +12,8 @@
   (case keycode
     (37 97) (update-in state [:lander :theta] (fn [theta] (mod (+ theta 10) 360)))
     (39 100) (update-in state [:lander :theta] (fn [theta] (mod (- theta 10) 360)))
-    (32 70) (assoc-in state [:lander :thrust] 100)
+    (32 70) (assoc-in state [:lander :thrust]
+                      (if (pos? (get-in state [:lander :fuel-mass])) 100 0))
     state))
 
 (defmulti handle-keyup (fn [state _] (state :game-state)))
