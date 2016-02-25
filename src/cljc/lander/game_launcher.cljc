@@ -23,8 +23,8 @@
     (for [i (range d) j (range d) :when (= 1 (get-in shape [i j]))]
       (mapv + [i j] shape-pos))))
 
-(defn valid? [state]
-  (every? (fn [[x y]] (and (<= 0 x 9) (< y 22))) (shape-coords state)))
+(defn valid? [{:keys [board] :as state}]
+  (every? (fn [[x y :as c]] (and ((complement board) c) (<= 0 x 9) (< y 22))) (shape-coords state)))
 
 (defn x-shift [state f]
   (let [shifted (update-in state [:shape-pos 0] f)]
