@@ -1,6 +1,6 @@
 (defproject
-  lander "0.1.0-SNAPSHOT"
-  :description "A Lunar Lander Game in Clojure"
+  tetris "0.1.0-SNAPSHOT"
+  :description "A Tetris Game in Clojure"
   :url "https://github.com/markbastian/lander"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
@@ -21,6 +21,6 @@
   :clj {:builds [{ :source-paths ["src/clj" "src/cljc" "test"] }]}
 
   :cljsbuild {:builds [{ :source-paths ["src/cljs" "src/cljc"]
-                        :compiler { :output-to "resources/public/js/lander.js"
+                        :compiler { :output-to "resources/public/js/tetris.js"
                                    :optimizations :advanced
                                    :pretty-print true}}]})
