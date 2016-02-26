@@ -1,4 +1,4 @@
-(ns lander.shapes)
+(ns tetris.shapes)
 
 (def shapes
   {:I [[0 0 0 0]

@@ -5,16 +5,18 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "0.0-3308"]
-                 [quil "2.2.6"]]
+                 [org.clojure/clojurescript "1.7.228"]
+                 [quil "2.3.0"]]
 
-  :main lander.launcher
+  :plugins [[lein-ancient "0.6.8"]]
+
+  :main tetris.launcher
 
   :jar-exclusions [#"\.swp|\.swo|\.DS_Store"]
   :profiles {:uberjar {:aot :all}
-             :dev {:plugins [[lein-cljsbuild "1.0.6"]
-                             [org.clojure/clojurescript "0.0-3308"]]}
-             :cljs {:plugins [[lein-cljsbuild "1.0.6"]] }}
+             :dev {:plugins [[lein-cljsbuild "1.1.2"]
+                             [org.clojure/clojurescript "1.7.228"]]}
+             :cljs {:plugins [[lein-cljsbuild "1.1.2"]] }}
 
   :source-paths ["src/clj" "src/cljc"]
 

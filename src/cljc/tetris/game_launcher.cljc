@@ -1,22 +1,21 @@
-(ns lander.game-launcher
+(ns tetris.game-launcher
   (:require
     [quil.core :as q #?@(:cljs [:include-macros true])]
     [quil.middleware :as m]
-    [lander.shapes :refer [shapes]]))
+    [tetris.shapes :refer [shapes]]))
 
 (defn setup []
   (q/smooth)
   (q/frame-rate 100)
-  {:shape-pos [0 0]
+  {:shape-pos [(rand-int 7) 0]
    :frame 0
+   :speed 50
    :board #{}
    :shape ((rand-nth (keys shapes)) shapes)})
 
-(defn rotate-cw [shape]
-  (apply mapv vector (map rseq shape)))
+(defn rotate-cw [shape] (apply mapv vector (map rseq shape)))
 
-(defn rotate-ccw [shape]
-  (apply mapv (comp vec rseq vector) shape))
+(defn rotate-ccw [shape] (apply mapv (comp vec rseq vector) shape))
 
 (defn shape-coords [{:keys [shape-pos shape]}]
   (let [d (count shape)]
@@ -24,7 +23,9 @@
       (mapv + [i j] shape-pos))))
 
 (defn valid? [{:keys [board] :as state}]
-  (every? (fn [[x y :as c]] (and ((complement board) c) (<= 0 x 9) (< y 22))) (shape-coords state)))
+  (every? (fn [[x y :as c]]
+            (and ((complement board) c) (<= 0 x 9) (< y 22)))
+          (shape-coords state)))
 
 (defn x-shift [state f]
   (let [shifted (update-in state [:shape-pos 0] f)]
@@ -36,44 +37,47 @@
 
 (defn clear-row [{:keys [board] :as state} row]
   (if (every? board (for [i (range 10)] [i row]))
-    (assoc state :board
-                 (into #{} (for [[i j] board :when (not= j row)]
-                             (if (< j row) [i (inc j)] [i j]))))
+    (-> state
+        (update :speed dec)
+        (assoc :board
+               (set (for [[i j] board :when (not= j row)]
+                      (if (< j row) [i (inc j)] [i j])))))
     state))
 
-(defn fall [{:keys [board] :as state}]
-  (let [shifted (update-in state [:shape-pos 1] inc)
-        coords (shape-coords shifted)]
-    (if (or (some board coords) (some (fn [[_ y]] (>= y 22)) coords))
+(defn fall [state]
+  (let [shifted (update-in state [:shape-pos 1] inc)]
+    (if (valid? shifted)
+      shifted
       (let [locked-coords (shape-coords state)]
         (-> state
             (update :board into locked-coords)
             (#(reduce clear-row % (map second locked-coords)))
-            (assoc :shape-pos [0 0])
-            (assoc :shape ((rand-nth (keys shapes)) shapes))))
-      shifted)))
+            (assoc :shape ((rand-nth (keys shapes)) shapes))
+            (assoc :shape-pos [(rand-int 7) 0]))))))
+
+(defn fast-drop [{:keys [board] :as state}]
+  (some #(when (not= board (:board %)) %) (iterate fall state)))
 
 (defn render [{:keys [board] :as state}]
-  (let [dim 20]
+  (let [dim 20 sc (set (shape-coords state))]
     (do
       (q/background 0 0 0)
-      (q/fill 255 255 255)
-      (doseq [i (range 10)
-              j (range 22)]
-        (q/rect (* i dim) (* j dim) dim dim))
-      (q/fill 0 255 0)
-      (doseq [[i j] board]
-        (q/rect (* i dim) (* j dim) dim dim))
-      (q/fill 255 0 0)
-      (doseq [[i j] (shape-coords state)]
-        (q/rect (* i dim) (* j dim) dim dim)))))
+      (doseq [i (range 10) j (range 22)]
+        (q/with-fill
+          (cond
+            (board [i j]) [0 255 0]
+            (sc [i j]) [255 0 0]
+            :default [255 255 255])
+          (q/rect (* i dim) (* j dim) dim dim))))))
 
-(defn sim [{:keys [frame] :as state}]
-  (cond-> (update state :frame inc) (zero? (mod frame 50)) fall))
+(defn sim [{:keys [frame board speed] :as state}]
+  (cond-> (update state :frame inc)
+          (zero? (mod frame (max speed 1))) fall
+          (some zero? (map second board)) (into {:board #{} :speed 50 })))
 
 (defn launch-sketch [{:keys[width height host]}]
   (q/sketch
-    :title "Tetris"
+    :title "lander"
     #?@(:cljs [:host host])
     :setup setup
     :draw render
@@ -86,7 +90,7 @@
                      40 (rotate state rotate-cw)
                      37 (x-shift state dec)
                      39 (x-shift state inc)
-                     32 (do (prn "space") state)
+                     32 (fast-drop state)
                      state))))
 
 #?(:clj (launch-sketch { :width 220 :height 440 }))
