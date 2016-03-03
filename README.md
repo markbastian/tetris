@@ -1,10 +1,14 @@
-# lander
+# Tetris
 
-A Clojure library that creates a simple lunar lander type game.
+A simple Tetris-like game written in Clojure.
 
 ## Usage
 
-Note that you will need to clone and install numerics to make this work.
+lein run
+
+If you want to make it executable, lein uberjar.
+
+lein cljsbuild once will also build a JavaScript version.
 
 ## License
 
