@@ -13,12 +13,11 @@
 
 (defn hello-world [state]
   (let [cell-dim 20
-        {:keys [board]} @state
+        {:keys [board score high-score]} @state
         sc (set (rules/shape-coords @state))]
     [:div
-     [:h1
-      (str "Tetris(" (count sc) ")")]
-     [:svg {:width 480 :height 480}
+     [:h1 "Tetris"]
+     [:svg {:width (* cell-dim 10) :height (* cell-dim 22)}
       (doall (for [i (range 10) j (range 22)]
         [:rect { :key (str i ":" j) :x (* i cell-dim) :y (* j cell-dim)
                 :width cell-dim :height cell-dim
@@ -26,23 +25,25 @@
                                      (board [i j]) :blue
                                      (sc [i j]) :green
                                      :default :black) }]))]
-     [:div
-      [:button #_{:on-click #(swap! app-state update :robot forward)} "Move 1"]
-      [:button {:on-click #(swap! state rules/rotate rules/rotate-ccw)} "Rotate right"]
-      [:button {:on-click #(swap! state rules/rotate rules/rotate-cw)} "Rotate left"]]]))
+     [:h4 (str "Score: " score)]
+     [:h4 (str "High Score: " high-score)]]))
 
 (reagent/render-component
   [hello-world state]
   (do
+    (set! (.-onkeydown js/window)
+                 (fn [e] (when (and (#{32 37 38 39 40} (.-keyCode e))
+                                    (= (.-target e) (.-body js/document)))
+                           (.preventDefault e))))
     (go-loop
       []
       (when-let [k (<! c)]
         (case k
-          65 (swap! state rules/x-shift dec)
-          68 (swap! state rules/x-shift inc)
-          87 (swap! state rules/rotate rules/rotate-ccw)
-          83 (swap! state rules/rotate rules/rotate-cw)
-          88 (swap! state rules/fast-drop)
+          37 (swap! state rules/x-shift dec)
+          39 (swap! state rules/x-shift inc)
+          38 (swap! state rules/rotate rules/rotate-ccw)
+          40 (swap! state rules/rotate rules/rotate-cw)
+          32 (swap! state rules/fast-drop)
           (prn k))
         (recur)))
     (set! (.-onkeydown js/document) #(go (>! c (-> % .-keyCode))))
