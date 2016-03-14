@@ -390,3 +390,70 @@ notifying browser that file changed:  out/tetris/rules.js
 [0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
 notifying browser that file changed:  out/tetris/rules.js
 [32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.438 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.318 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.229 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.228 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.339 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.254 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.229 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.234 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.223 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.248 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.222 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.215 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.209 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.371 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.256 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.258 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.244 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/core.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.3 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+WARNING: Wrong number of args (1) passed to tetris.rules/manipulate at line 37 src/cljc/tetris/rules.cljc
+notifying browser that file changed:  out/tetris/rules.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.473 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/rules.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.446 seconds.[0m
+[0mCompiling "resources/public/js/compiled/tetris.js" from ["src/cljs" "src/cljc"]...
+notifying browser that file changed:  out/tetris/rules.js
+[32mSuccessfully compiled "resources/public/js/compiled/tetris.js" in 0.456 seconds.[0m

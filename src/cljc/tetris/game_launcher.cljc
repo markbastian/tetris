@@ -22,7 +22,6 @@
             :default [255 255 255])
           (q/rect (* i dim) (* j dim) dim dim))))))
 
-
 (defn launch-sketch [{:keys[width height host]}]
   (q/sketch
     :title "lander"
@@ -41,7 +40,7 @@
                      32 (rules/fast-drop state)
                      state))))
 
-;#?(:clj (launch-sketch { :width 220 :height 440 }))
+#?(:clj (launch-sketch { :width 220 :height 440 }))
 
 #?(:cljs (defn ^:export launch-app[host width height]
            (launch-sketch { :width width :height height :host host})))

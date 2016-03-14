@@ -34,23 +34,23 @@ quil.middlewares.fun_mode.key_event = (function quil$middlewares$fun_mode$key_ev
 return new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"key","key",-1516042587),quil.core.key_as_keyword.call(null),new cljs.core.Keyword(null,"key-code","key-code",-1732114304),quil.core.key_code.call(null),new cljs.core.Keyword(null,"raw-key","raw-key",-162482279),quil.core.raw_key.call(null)], null);
 });
 quil.middlewares.fun_mode.wrap_handler = (function quil$middlewares$fun_mode$wrap_handler(var_args){
-var args24561 = [];
-var len__19349__auto___24564 = arguments.length;
-var i__19350__auto___24565 = (0);
+var args26319 = [];
+var len__19349__auto___26322 = arguments.length;
+var i__19350__auto___26323 = (0);
 while(true){
-if((i__19350__auto___24565 < len__19349__auto___24564)){
-args24561.push((arguments[i__19350__auto___24565]));
+if((i__19350__auto___26323 < len__19349__auto___26322)){
+args26319.push((arguments[i__19350__auto___26323]));
 
-var G__24566 = (i__19350__auto___24565 + (1));
-i__19350__auto___24565 = G__24566;
+var G__26324 = (i__19350__auto___26323 + (1));
+i__19350__auto___26323 = G__26324;
 continue;
 } else {
 }
 break;
 }
 
-var G__24563 = args24561.length;
-switch (G__24563) {
+var G__26321 = args26319.length;
+switch (G__26321) {
 case 2:
 return quil.middlewares.fun_mode.wrap_handler.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -60,7 +60,7 @@ return quil.middlewares.fun_mode.wrap_handler.cljs$core$IFn$_invoke$arity$3((arg
 
 break;
 default:
-throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args24561.length)].join('')));
+throw (new Error([cljs.core.str("Invalid arity: "),cljs.core.str(args26319.length)].join('')));
 
 }
 });
@@ -90,14 +90,14 @@ return options;
 quil.middlewares.fun_mode.wrap_handler.cljs$lang$maxFixedArity = 3;
 quil.middlewares.fun_mode.wrap_handlers = (function quil$middlewares$fun_mode$wrap_handlers(var_args){
 var args__19356__auto__ = [];
-var len__19349__auto___24570 = arguments.length;
-var i__19350__auto___24571 = (0);
+var len__19349__auto___26328 = arguments.length;
+var i__19350__auto___26329 = (0);
 while(true){
-if((i__19350__auto___24571 < len__19349__auto___24570)){
-args__19356__auto__.push((arguments[i__19350__auto___24571]));
+if((i__19350__auto___26329 < len__19349__auto___26328)){
+args__19356__auto__.push((arguments[i__19350__auto___26329]));
 
-var G__24572 = (i__19350__auto___24571 + (1));
-i__19350__auto___24571 = G__24572;
+var G__26330 = (i__19350__auto___26329 + (1));
+i__19350__auto___26329 = G__26330;
 continue;
 } else {
 }
@@ -120,10 +120,10 @@ return cljs.core.apply.call(null,quil.middlewares.fun_mode.wrap_handler,options_
 
 quil.middlewares.fun_mode.wrap_handlers.cljs$lang$maxFixedArity = (1);
 
-quil.middlewares.fun_mode.wrap_handlers.cljs$lang$applyTo = (function (seq24568){
-var G__24569 = cljs.core.first.call(null,seq24568);
-var seq24568__$1 = cljs.core.next.call(null,seq24568);
-return quil.middlewares.fun_mode.wrap_handlers.cljs$core$IFn$_invoke$arity$variadic(G__24569,seq24568__$1);
+quil.middlewares.fun_mode.wrap_handlers.cljs$lang$applyTo = (function (seq26326){
+var G__26327 = cljs.core.first.call(null,seq26326);
+var seq26326__$1 = cljs.core.next.call(null,seq26326);
+return quil.middlewares.fun_mode.wrap_handlers.cljs$core$IFn$_invoke$arity$variadic(G__26327,seq26326__$1);
 });
 quil.middlewares.fun_mode.wrap_mouse_wheel = (function quil$middlewares$fun_mode$wrap_mouse_wheel(options){
 var temp__4423__auto__ = new cljs.core.Keyword(null,"mouse-wheel","mouse-wheel",1811662439).cljs$core$IFn$_invoke$arity$1(options);
@@ -150,4 +150,4 @@ return new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"x"
 })], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"key-pressed","key-pressed",-757100364),quil.middlewares.fun_mode.key_event], null),new cljs.core.Keyword(null,"key-released","key-released",215919828),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"key-typed","key-typed",-876037597),quil.middlewares.fun_mode.key_event], null),new cljs.core.Keyword(null,"on-close","on-close",-761178394)));
 });
 
-//# sourceMappingURL=fun_mode.js.map?rel=1456984143871
+//# sourceMappingURL=fun_mode.js.map?rel=1457675247893

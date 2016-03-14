@@ -2,12 +2,12 @@
   (:require [tetris.shapes :refer [shapes]]))
 
 (defn initial-state []
-  {:shape-pos [(rand-int 7) 0]
-   :frame 0
+  {:frame 0
+   :speed 50
    :score 0
    :high-score 0
-   :speed 50
    :board #{}
+   :shape-pos [(rand-int 7) 0]
    :shape ((rand-nth (keys shapes)) shapes)})
 
 (defn rotate-cw [shape] (apply mapv vector (map rseq shape)))
@@ -57,8 +57,8 @@
             (update :board into locked-coords)
             (score 1)
             (#(reduce clear-row % (map second locked-coords)))
-            (assoc :shape ((rand-nth (keys shapes)) shapes))
-            (assoc :shape-pos [(rand-int 7) 0]))))))
+            (into { :shape ((rand-nth (keys shapes)) shapes)
+                   :shape-pos [(rand-int 7) 0]}))))))
 
 (defn fast-drop [{:keys [board] :as state}]
   (some #(when (not= board (:board %)) %) (iterate fall state)))

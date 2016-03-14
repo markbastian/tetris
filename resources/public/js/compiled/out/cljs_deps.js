@@ -19,7 +19,8 @@ goog.addDependency("../cljs/core/async/impl/timers.js", ['cljs.core.async.impl.t
 goog.addDependency("../cljs/core/async.js", ['cljs.core.async'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols', 'cljs.core.async.impl.ioc_helpers', 'cljs.core.async.impl.timers']);
 goog.addDependency("../tetris/shapes.js", ['tetris.shapes'], ['cljs.core']);
 goog.addDependency("../tetris/rules.js", ['tetris.rules'], ['cljs.core', 'tetris.shapes']);
-goog.addDependency("../tetris/core.js", ['tetris.core'], ['reagent.core', 'cljs.core', 'cljs.core.async', 'tetris.rules']);
+goog.addDependency("../cljs/pprint.js", ['cljs.pprint'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer', 'clojure.string']);
+goog.addDependency("../tetris/core.js", ['tetris.core'], ['reagent.core', 'cljs.core', 'cljs.core.async', 'tetris.rules', 'cljs.pprint']);
 goog.addDependency("../clojure/set.js", ['clojure.set'], ['cljs.core']);
 goog.addDependency("../figwheel/client/utils.js", ['figwheel.client.utils'], ['cljs.core', 'clojure.string']);
 goog.addDependency("../figwheel/client/file_reloading.js", ['figwheel.client.file_reloading'], ['goog.string', 'goog.net.jsloader', 'goog.Uri', 'cljs.core', 'goog.object', 'cljs.core.async', 'clojure.set', 'figwheel.client.utils', 'clojure.string']);
