@@ -6,7 +6,7 @@
    :speed 50
    :score 0
    :high-score 0
-   :board #{}
+   :locked #{}
    :shape-pos [(rand-int 7) 0]
    :shape ((rand-nth (keys shapes)) shapes)})
 
@@ -25,9 +25,9 @@
             (> new-score high-score)
             (assoc :high-score new-score))))
 
-(defn valid? [{:keys [board] :as state}]
+(defn valid? [{:keys [locked] :as state}]
   (every? (fn [[x y :as c]]
-            (and ((complement board) c) (<= 0 x 9) (< y 22)))
+            (and ((complement locked) c) (<= 0 x 9) (< y 22)))
           (shape-coords state)))
 
 (defn x-shift [state f]
@@ -38,13 +38,13 @@
   (let [shifted (update state :shape f)]
     (if (valid? shifted) shifted state)))
 
-(defn clear-row [{:keys [board] :as state} row]
-  (if (every? board (for [i (range 10)] [i row]))
+(defn clear-row [{:keys [locked] :as state} row]
+  (if (every? locked (for [i (range 10)] [i row]))
     (-> state
         (score 10)
         (update :speed dec)
-        (assoc :board
-               (set (for [[i j] board :when (not= j row)]
+        (assoc :locked
+               (set (for [[i j] locked :when (not= j row)]
                       (if (< j row) [i (inc j)] [i j])))))
     state))
 
@@ -54,18 +54,18 @@
       shifted
       (let [locked-coords (shape-coords state)]
         (-> state
-            (update :board into locked-coords)
+            (update :locked into locked-coords)
             (score 1)
             (#(reduce clear-row % (map second locked-coords)))
             (into { :shape ((rand-nth (keys shapes)) shapes)
                    :shape-pos [(rand-int 7) 0]}))))))
 
-(defn fast-drop [{:keys [board] :as state}]
-  (some #(when (not= board (:board %)) %) (iterate fall state)))
+(defn fast-drop [{:keys [locked] :as state}]
+  (some #(when (not= locked (:locked %)) %) (iterate fall state)))
 
-(defn game-step [{:keys [frame board speed] :as state}]
+(defn game-step [{:keys [frame locked speed] :as state}]
   (cond-> (update state :frame inc)
           (zero? (mod frame (max speed 1)))
           fall
-          (some zero? (map second board))
+          (some zero? (map second locked))
           (into (dissoc (initial-state) :high-score))))

@@ -10,21 +10,21 @@
   (q/frame-rate 100)
   (rules/initial-state))
 
-(defn render [{:keys [board] :as state}]
+(defn render [{:keys [locked] :as state}]
   (let [dim 20 sc (set (rules/shape-coords state))]
     (do
       (q/background 0 0 0)
       (doseq [i (range 10) j (range 22)]
-        (q/with-fill
-          (cond
-            (board [i j]) [0 255 0]
-            (sc [i j]) [255 0 0]
-            :default [255 255 255])
+        (let [fill (cond
+                     (locked [i j]) [0 255 0]
+                     (sc [i j]) [255 0 0]
+                     :default [255 255 255])]
+          (apply q/fill fill)
           (q/rect (* i dim) (* j dim) dim dim))))))
 
 (defn launch-sketch [{:keys[width height host]}]
   (q/sketch
-    :title "lander"
+    :title "tetris"
     #?@(:cljs [:host host])
     :setup setup
     :draw render
@@ -40,7 +40,7 @@
                      32 (rules/fast-drop state)
                      state))))
 
-#?(:clj (launch-sketch { :width 220 :height 440 }))
+;#?(:clj (launch-sketch { :width 220 :height 440 }))
 
 #?(:cljs (defn ^:export launch-app[host width height]
            (launch-sketch { :width width :height height :host host})))

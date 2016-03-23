@@ -11,7 +11,7 @@
 
 (defn render [state]
   (let [cell-dim 20
-        {:keys [board score high-score]} @state
+        {:keys [locked score high-score]} @state
         sc (set (rules/shape-coords @state))]
     [:div
      [:h1 "Tetris"]
@@ -20,7 +20,7 @@
         [:rect { :key (str i ":" j) :x (* i cell-dim) :y (* j cell-dim)
                 :width cell-dim :height cell-dim
                 :stroke :red :fill (cond
-                                     (board [i j]) :blue
+                                     (locked [i j]) :blue
                                      (sc [i j]) :green
                                      :default :black) }]))]
      [:h4 (str "Score: " score)]

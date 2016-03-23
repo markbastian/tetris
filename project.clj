@@ -29,11 +29,7 @@
 
   :clj {:builds [{ :source-paths ["src/clj" "src/cljc" "test"] }]}
 
-  :cljsbuild {:builds [{ :source-paths ["src/cljs" "src/cljc"]
-                        :compiler { :output-to "resources/public/js/tetris.js"
-                                   :optimizations :advanced
-                                   :pretty-print true}}
-                       {:id "dev"
+  :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs" "src/cljc"]
 
                         ;; If no code is to be run, set :figwheel true for continued automagical reloading
