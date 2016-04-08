@@ -33,8 +33,8 @@
     :size [width height]
     :key-pressed (fn [state { :keys [key-code] }]
                    (case key-code
-                     38 (rules/rotate state rules/rotate-ccw)
-                     40 (rules/rotate state rules/rotate-cw)
+                     38 (rules/rotate state rules/rotate-cw)
+                     40 (rules/rotate state rules/rotate-ccw)
                      37 (rules/x-shift state dec)
                      39 (rules/x-shift state inc)
                      32 (rules/fast-drop state)

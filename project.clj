@@ -9,7 +9,8 @@
                  [quil "2.3.0"]
                  [reagent "0.5.1"]
                  [org.clojure/core.async "0.2.374"
-                  :exclusions [org.clojure/tools.reader]]]
+                  :exclusions [org.clojure/tools.reader]]
+                 [cljsjs/hammer "2.0.4-5"]]
 
   :plugins [[lein-ancient "0.6.8"]
             [lein-figwheel "0.5.0-6"]

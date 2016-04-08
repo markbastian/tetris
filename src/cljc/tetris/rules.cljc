@@ -10,9 +10,11 @@
    :shape-pos [(rand-int 7) 0]
    :shape ((rand-nth (keys shapes)) shapes)})
 
-(defn rotate-cw [shape] (apply mapv vector (map rseq shape)))
+(defn rotate-ccw [shape]
+  (apply mapv vector (map rseq shape)))
 
-(defn rotate-ccw [shape] (apply mapv (comp vec rseq vector) shape))
+(defn rotate-cw [shape]
+  (apply mapv (comp vec rseq vector) shape))
 
 (defn shape-coords [{:keys [shape-pos shape]}]
   (let [d (count shape)]
@@ -61,7 +63,8 @@
                    :shape-pos [(rand-int 7) 0]}))))))
 
 (defn fast-drop [{:keys [locked] :as state}]
-  (some #(when (not= locked (:locked %)) %) (iterate fall state)))
+  (some #(when (not= locked (:locked %)) %)
+        (iterate fall state)))
 
 (defn game-step [{:keys [frame locked speed] :as state}]
   (cond-> (update state :frame inc)
