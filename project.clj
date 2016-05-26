@@ -53,7 +53,7 @@
                                    :optimizations :advanced
                                    :pretty-print false}}]}
   
-  :figwheel {:dependencies {}
+  :figwheel { ;; :dependencies {}
              ;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
              ;; :server-ip "127.0.0.1"
