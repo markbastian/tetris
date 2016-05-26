@@ -12,11 +12,8 @@
                   :exclusions [org.clojure/tools.reader]]
                  [cljsjs/hammer "2.0.4-5"]]
 
-  :plugins [[lein-ancient "0.6.8"]
-            [lein-figwheel "0.5.2"]
-            [lein-cljsbuild "1.1.3" :exclusions [[org.clojure/clojure]]]
-            [refactor-nrepl "2.3.0-SNAPSHOT"]
-            [cider/cider-nrepl "0.13.0-SNAPSHOT"]]
+  :plugins [[lein-figwheel "0.5.2"]
+            [lein-cljsbuild "1.1.3" :exclusions [[org.clojure/clojure]]]]
 
   :main tetris.launcher
 
@@ -25,9 +22,10 @@
   :jar-exclusions [#"\.swp|\.swo|\.DS_Store"]
   :profiles {:uberjar {:aot :all}
              :dev {:plugins [[lein-cljsbuild "1.1.3"]
-                             [org.clojure/clojurescript "1.8.51"] ]
+                             [org.clojure/clojurescript "1.8.51"]]
                    :dependencies [[com.cemerick/piggieback "0.2.1"]
-                                  [figwheel-sidecar "0.5.2"]]}
+                                  [figwheel-sidecar "0.5.2"]]
+                   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}
              :cljs {:plugins [[lein-cljsbuild "1.1.2"]] }}
 
   :source-paths ["src/clj" "src/cljc"]
@@ -54,8 +52,6 @@
                                    :main tetris.core
                                    :optimizations :advanced
                                    :pretty-print false}}]}
-
-  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
   
   :figwheel {:dependencies {}
              ;; :http-server-root "public" ;; default and assumes "resources"

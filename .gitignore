@@ -12,3 +12,4 @@ pom.xml.asc
 .DS_Store
 /resources/public/js
 scratch.clj
+*.log
