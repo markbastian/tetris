@@ -25,7 +25,8 @@
                              [org.clojure/clojurescript "1.8.51"]]
                    :dependencies [[com.cemerick/piggieback "0.2.1"]
                                   [figwheel-sidecar "0.5.2"]]
-                   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}
+                   :repl-options {:nrepl-middleware
+                                  [cemerick.piggieback/wrap-cljs-repl]}}
              :cljs {:plugins [[lein-cljsbuild "1.1.2"]] }}
 
   :source-paths ["src/clj" "src/cljc"]
@@ -53,7 +54,7 @@
                                    :optimizations :advanced
                                    :pretty-print false}}]}
   
-  :figwheel {:dependencies {}
+  :figwheel {
              ;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
              ;; :server-ip "127.0.0.1"

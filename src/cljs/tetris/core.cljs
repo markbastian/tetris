@@ -22,7 +22,7 @@
                 :width cell-dim :height cell-dim
                 :stroke :red :fill (cond
                                      (locked [i j]) :blue
-                                     (sc [i j]) :yellow
+                                     (sc [i j]) :orange
                                      :default :black) }]))]
      [:h4 (str "Score: " score)]
      [:h4 (str "High Score: " high-score)]
