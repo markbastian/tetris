@@ -27,7 +27,7 @@
     :title "tetris"
     #?@(:cljs [:host host])
     :setup setup
-    :draw render
+    :draw #'render
     :update rules/game-step
     :middleware [m/fun-mode]
     :size [width height]
