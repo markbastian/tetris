@@ -13,3 +13,7 @@ pom.xml.asc
 /resources/public/js
 scratch.clj
 *.log
+/.cpcache
+/.shadow-cljs
+/node_modules
+/public/js

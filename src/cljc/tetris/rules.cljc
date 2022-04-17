@@ -1,6 +1,7 @@
 (ns tetris.rules
   (:require [tetris.shapes :refer [shapes]]))
 
+;; Initialization function
 (defn initial-state []
   {:frame 0
    :speed 50
@@ -10,6 +11,7 @@
    :shape-pos [(rand-int 7) 0]
    :shape ((rand-nth (keys shapes)) shapes)})
 
+;; Utility functions
 (defn rotate-ccw [shape]
   (apply mapv vector (map rseq shape)))
 
@@ -21,6 +23,7 @@
     (for [i (range d) j (range d) :when (= 1 (get-in shape [i j]))]
       (mapv + [i j] shape-pos))))
 
+;; State functions
 (defn score [{:keys [score high-score] :as state} amt]
   (let [new-score (+ score amt)]
     (cond-> (assoc state :score new-score)
@@ -72,3 +75,12 @@
           fall
           (some zero? (map second locked))
           (into (dissoc (initial-state) :high-score))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(comment
+  (doseq [r (-> shapes
+                :T
+                rotate-ccw
+                rotate-ccw
+                )]
+  (println r)))
